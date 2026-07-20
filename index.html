@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SY MECHANICAL 502A</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- SIDEBAR NAV -->
+    <nav class="sidebar" id="sidebar">
+      <div class="mech-logo-plate">
+        <span class="rivet r-tl"></span>
+        <span class="rivet r-tr"></span>
+        <span class="rivet r-bl"></span>
+        <span class="rivet r-br"></span>
+        <div class="mech-logo-body">
+          <div class="mech-logo-sy">
+            <span class="mech-spin-gear">&#9881;</span>SY
+          </div>
+          <div class="mech-logo-sep"></div>
+          <div class="mech-logo-right">
+            <div class="mech-logo-word">
+              MECH<span class="mech-accent-slash">/</span>ANICAL
+            </div>
+            <div class="mech-logo-rule"></div>
+            <div class="mech-logo-class">&#183; CLASS 502A &#183;</div>
+          </div>
+        </div>
+        <div class="mech-logo-scan"></div>
+      </div>
+
+      <ul class="nav-list">
+        <li>
+          <a class="nav-link active" href="#home" data-page="home">
+            <span class="nav-icon">&#9632;</span> Home
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#memories" data-page="memories">
+            <span class="nav-icon">&#9652;</span> Memories
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#timetable" data-page="timetable">
+            <span class="nav-icon">&#9670;</span> Timetable
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" href="#materials" data-page="materials">
+            <span class="nav-icon">&#9724;</span> Study Material
+          </a>
+        </li>
+        <li>
+
+
+          <a class="nav-link" href="#about" data-page="about">
+            <span class="nav-icon">&#9632;</span> About
+          </a>
+        </li>
+      </ul>
+
+      <div class="theme-toggle-wrap">
+        <button class="theme-toggle-btn" id="themeToggle" title="Switch theme">
+          <span class="theme-icon" id="themeIcon">&#9790;</span>
+          <span class="theme-label" id="themeLabel">Light Mode</span>
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="batch-info">
+          <span class="batch-label">BATCH</span>
+          <span class="batch-val">2025–26</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE TOPBAR -->
+    <header class="topbar" id="topbar">
+      <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+      <span class="topbar-title"
+        ><span class="topbar-sy">SY</span> MECHANICAL</span
+      >
+      <button
+        class="topbar-theme-btn"
+        id="topbarThemeToggle"
+        title="Switch theme"
+      >
+        <span id="topbarThemeIcon">&#9790;</span>
+      </button>
+    </header>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="mainContent">
+      <!-- HOME -->
+      <section class="page" id="page-home">
+        <div class="page-header home-header">
+          <h1 class="page-title home-title">
+            <span class="accent">SY</span> MECHANICAL
+          </h1>
+        </div>
+
+        <!-- Hero Memories Carousel -->
+        <div class="section-block">
+          <div class="section-label">
+            <span class="label-line"></span>FIRST YEAR MEMORIES<span
+              class="label-line"
+            ></span>
+          </div>
+          <div class="carousel" id="homeCarousel">
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-slide">
+                <img src="/assets/photo1.png" alt="First Year Memories" />
+                <div class="slide-caption">
+                  First Year — New Beginning, New Friends, New Dreams
+                </div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/assets/photo2.png" alt="Batch Together" />
+                <div class="slide-caption">Our Batch — College Days</div>
+              </div>
+              <div class="carousel-slide">
+                <img src="/assets/photo3.png" alt="College Days Collage" />
+                <div class="slide-caption">
+                  Good Times · Crazy Friends · Great Memories
+                </div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" id="carouselPrev">&#8592;</button>
+            <button class="carousel-btn next" id="carouselNext">&#8594;</button>
+            <div class="carousel-dots" id="carouselDots"></div>
+          </div>
+        </div>
+        <!-- Upcoming Lecture -->
+        <div class="section-block">
+          <div class="section-label">
+            <span class="label-line"></span>UPCOMING LECTURE<span
+              class="label-line"
+            ></span>
+          </div>
+          <div id="upcomingClasses">
+            <div class="loading-bar"><span></span></div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="section-label">
+            <span class="label-line"></span>
+            <button onclick="navigate('timetable')" class="btn-primary">&#9670; FULL TIMETABLE</button>
+            CAMPUS NOTICE BOARD
+            <span class="label-line"></span>
+          </div>
+
+
+          <div class="notice-board-container">
+            <div class="notice-card birthday-notice">
+              <div class="notice-badge bday-badge">🎂 CELEBRATION</div>
+              <div class="notice-content">
+                <h3>Happy Birthday Nimesh  🎉</h3>
+                <p>
+                  Wishing yoHappBirthdaystic year ahead full of success and less
+                  mechanical stress! ⚙️✨ Let's celebrate, Mech-Gems!
+                </p>
+              </div>
+              <div class="notice-footer">
+                <span>📅 8 July, 2026</span>
+                <span>👤 MECHANICAL UNITY</span>
+              </div>
+            </div>
+
+            <div class="notice-card alert-notice">
+              <div class="notice-badge alert-badge">📢 IMPORTANT</div>
+              <div class="notice-content">
+                <h3>📢 IMPORTANT ANNOUNCEMENT: COLLEGE EMAIL IDs</h3>
+                <p>
+                  Great news! The official college email IDs for all students
+                  have been generated and received.
+                </p>
+                <p>
+                  NOTE-Official WhatsApp Group: Class coordinators/professors
+                  will share an official Excel Sheet or PDF containing the names
+                  and assigned email IDs of all students.
+                </p>
+              </div>
+              <div class="notice-footer">
+                <span>📅 26\06\2026</span>
+                <span>👨‍🏫 SY Mechanical Team Mechanical Unity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Access -->
+        <div class="section-block">
+          <div class="section-label">
+            <span class="label-line"></span>QUICK ACCESS<span
+              class="label-line"
+            ></span>
+          </div>
+          <div class="quick-cards">
+            <div class="quick-card" onclick="navigate('materials')">
+              <div class="qc-icon">&#9724;</div>
+              <div class="qc-info">
+                <div class="qc-label">Study Material</div>
+                <div class="qc-sub">Notes &amp; PYQs for all subjects</div>
+              </div>
+              <div class="qc-arrow">&#8250;</div>
+            </div>
+        <!-- <div class="quick-card" onclick="navigate('questions')">
+              <div class="qc-icon">&#9651;</div>
+              <div class="qc-info">
+                <div class="qc-label">Ask / Q&amp;A</div>
+                <div class="qc-sub">Post doubts, get answers</div>
+              </div>
+              <div class="qc-arrow">&#8250;</div>
+            </div>-->
+            <div class="quick-card" onclick="navigate('timetable')">
+              <div class="qc-icon">&#9670;</div>
+              <div class="qc-info">
+                <div class="qc-label">Full Timetable</div>
+                <div class="qc-sub">Mon – Sat schedule</div>
+              </div>
+              <div class="qc-arrow">&#8250;</div>
+            </div>
+            <div class="quick-card" onclick="navigate('suggestions')">
+              <div class="qc-icon">&#9675;</div>
+              <div class="qc-info">
+                <div class="qc-label">Suggestions</div>
+                <div class="qc-sub">Give feedback &amp; ideas</div>
+              </div>
+              <div class="qc-arrow">&#8250;</div>
+            </div>
+          </div>
+      </div-->
+        <div class="section-block gate-zone-block">
+          <div class="section-label">
+            <span class="label-line"></span>
+            GATE PREPARATION ZONE
+            <span class="label-line"></span>
+          </div>
+
+          <div class="gate-premium-card">
+            <div class="gate-card-content">
+              <div class="gate-icon-badge">🎯</div>
+              <h3 class="gate-card-title">Free GATE All Material & Lectures</h3>
+              <p class="gate-card-subtitle">Complete Video Series & Premium Study Material by PW</p>
+            </div>
+
+            <a href="https://akkistudy.netlify.app/" target="_blank" class="gate-study-btn">
+              Study Now <span class="btn-glow-arrow">🚀</span>
+            </a>
+          </div>
+        </div>
+
+
+
+
+        <!-- ── END BLOG ──────────────────────────────── -->
+        <header class="mech-banner">
+          <div class="mech-banner-overlay">
+            <div class="mech-container">
+              <div class="banner-content">
+                <div class="batch-tag">⚡ BATCH 2025–26 ⚡</div>
+
+                <h1 class="banner-title">
+                  <span class="sy">S.Y.</span> MECHANICAL
+                  <span class="engg">ENGINEERING</span>
+                </h1>
+
+                <p class="banner-quote">
+                  "Engineers turn dreams into reality. Class 502A zindabad!" 🔧
+                </p>
+
+                <div class="banner-credits">
+                  <span class="icon">👨‍💻</span> Built and Maintained by: 
+                  <strong class="dev-name">ONKAR HANUMANT JAGTAP</strong>
+                </div>
+
+                <div class="banner-actions">
+                  <button onclick="navigate('materials')" class="banner-btn btn-primary">Study Material</button>
+                  <button onclick="navigate('timetable')" class="banner-btn btn-secondary">Full Timetable</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </section>
+      <!-- MEMORIES -->
+      <section class="page hidden" id="page-memories">
+        <div class="page-header">
+          <h1 class="page-title">
+            FIRST YEAR <span class="accent">MEMORIES</span>
+          </h1>
+          <p class="page-sub">
+            New Beginning &bull; New Friends &bull; New Dreams
+          </p>
+        </div>
+        <div class="memory-banner">
+          <div class="memory-banner-text">
+            <div class="memory-crown">&#9733;</div>
+            <div class="memory-main-title">First Year Memories</div>
+            <div class="memory-tagline">College Days &mdash; 2025</div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-item">
+              <img src="/assets/photo1.png" alt="Memories 1" />
+            </div>
+            <div class="gallery-item">
+              <img src="/assets/photo2.png" alt="Memories 2" />
+            </div>
+            <div class="gallery-item gallery-wide">
+              <img src="/assets/photo3.png" alt="Memories Collage" />
+            </div>
+          </div>
+          <div id="galleryExtra"></div>
+        </div>
+        <div class="memory-stats">
+          <div class="mem-stat">
+            <span class="mem-num">13+</span
+            ><span class="mem-label">Friends</span>
+          </div>
+          <div class="mem-stat">
+            <span class="mem-num">1</span><span class="mem-label">Year</span>
+          </div>
+          <div class="mem-stat">
+            <span class="mem-num">&#8734;</span
+            ><span class="mem-label">Memories</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMETABLE -->
+      <section class="page hidden" id="page-timetable">
+        <div class="page-header">
+          <h1 class="page-title">
+            CLASS <span class="accent">TIMETABLE</span>
+          </h1>
+          <p class="page-sub">Room 502A &mdash; w.e.f. 15/06/2026</p>
+        </div>
+
+        <div class="section-block">
+          <div class="day-tabs" id="dayTabs">
+            <button class="day-tab active" data-day="Mon">MON</button>
+            <button class="day-tab" data-day="Tue">TUE</button>
+            <button class="day-tab" data-day="Wed">WED</button>
+            <button class="day-tab" data-day="Thu">THU</button>
+            <button class="day-tab" data-day="Fri">FRI</button>
+            <button class="day-tab" data-day="Sat">SAT</button>
+          </div>
+          <div id="timetableContent">
+            <div class="loading-bar"><span></span></div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-label">
+            <span class="label-line"></span>SUBJECT DETAILS<span
+              class="label-line"
+            ></span>
+          </div>
+          <div class="subject-legend">
+            <div class="legend-item">
+              <span class="sub-code">FM&amp;HM</span
+              ><span class="sub-full"
+                >Fluid Mechanics &amp; Hydraulic Machines</span
+              >
+            </div>
+            <div class="legend-item">
+              <span class="sub-code">ET</span
+              ><span class="sub-full">Engineering Thermodynamics</span>
+            </div>
+            <div class="legend-item">
+              <span class="sub-code">KOM</span
+              ><span class="sub-full">Kinematics of Machines</span>
+            </div>
+            <div class="legend-item">
+              <span class="sub-code">EVS</span
+              ><span class="sub-full">Environmental Science</span>
+            </div>
+            <div class="legend-item">
+              <span class="sub-code">DSA</span
+              ><span class="sub-full">Data Structures and Algorithms</span>
+            </div>
+            <div class="legend-item">
+              <span class="sub-code">PP</span
+              ><span class="sub-full">Python Programming</span>
+            </div>
+            <div class="legend-item">
+              <span class="sub-code">ITPDE</span
+              ><span class="sub-full"
+                >Integral Transform &amp; Partial Differential Equation</span
+              >
+            </div>
+            <div class="legend-item">
+              <span class="sub-code">LS</span
+              ><span class="sub-full">Life Skills</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <div class="section-label">
+            <span class="label-line"></span>FACULTY DETAILS<span
+              class="label-line"
+            ></span>
+          </div>
+          <div class="faculty-grid">
+            <div class="faculty-card">
+              <span class="fac-code">AMT</span
+              ><span class="fac-name">Dr. A.M. Thakare</span
+              ><span class="fac-sub">FM&amp;HM</span>
+            </div>
+            <div class="faculty-card">
+              <span class="fac-code">SM</span
+              ><span class="fac-name">Dr. S.G. Mhitari</span
+              ><span class="fac-sub">ET</span>
+            </div>
+            <div class="faculty-card">
+              <span class="fac-code">BAP</span
+              ><span class="fac-name">Dr. B.A. Phugate</span
+              ><span class="fac-sub">KOM</span>
+            </div>
+            <div class="faculty-card">
+              <span class="fac-code">DSP</span
+              ><span class="fac-name">Dr. D.S. Patil</span
+              ><span class="fac-sub">EVS</span>
+            </div>
+            <div class="faculty-card">
+              <span class="fac-code">JS</span
+              ><span class="fac-name">Mr.Jaydeep Shinde</span
+              ><span class="fac-sub">DSA</span>
+            </div>
+            <div class="faculty-card">
+              <span class="fac-code">NG</span
+              ><span class="fac-name">Mr. Nagareddy G.</span
+              ><span class="fac-sub">PP / Lab</span>
+            </div>
+            <div class="faculty-card">
+              <span class="fac-code">JN</span
+              ><span class="fac-name">Dr. Jagannath Nath</span
+              ><span class="fac-sub">ITPDE</span>
+            </div>
+            <div class="faculty-card">
+              <span class="fac-code">PK</span
+              ><span class="fac-name">Mr. Pravin Kale</span
+              ><span class="fac-sub">LS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STUDY MATERIAL -->
+      <section class="page hidden" id="page-materials">
+        <div class="page-header">
+          <h1 class="page-title">STUDY <span class="accent">MATERIAL</span></h1>
+          <p class="page-sub">Notes &amp; PYQs for all subjects</p>
+        </div>
+
+        <div class="section-block">
+          <div class="mat-topbar">
+            <select id="filterSubject" class="filter-select">
+              <option value="">All Subjects</option>
+              <option value="FM&HM">FM&amp;HM</option>
+              <option value="ET">ET</option>
+              <option value="KOM">KOM</option>
+              <option value="DSA">DSA</option>
+              <option value="ITPDE">ITPDE</option>
+              <option value="PP">PP</option>
+              <option value="EVS">EVS</option>
+              <option value="ES">ES</option>
+            </select>
+
+          </div>
+        </div>
+
+        <div id="materialsContent">
+          <div class="loading-bar"><span></span></div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="page hidden" id="page-about">
+        <div class="page-header">
+          <h1 class="page-title">ABOUT <span class="accent">US</span></h1>
+          <p class="page-sub">Built by students, for students</p>
+        </div>
+        <div class="section-block">
+          <div class="about-card">
+            <div class="about-gear-bg">&#9881;</div>
+            <div class="about-content">
+              <div class="about-title">SY MECHANICAL</div>
+              <div class="about-sub">
+                Class 502A &mdash; Second Year Engineering
+              </div>
+              <div class="about-desc">
+                This app is built by SY Mechanical students to keep our batch
+                connected. Find timetables, share notes, ask questions, and
+                relive our First Year memories — all in one place.
+              </div>
+              <div class="about-tags">
+                <span class="tag">FM&amp;HM</span>
+                <span class="tag">ET</span>
+                <span class="tag">KOM</span>
+                <span class="tag">DSA</span>
+                <span class="tag">ITPDE</span>
+                <span class="tag">PP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section-block">
+          <div class="section-label">
+            <span class="label-line"></span>CONTRIBUTE &amp; DONATE<span
+              class="label-line"
+            ></span>
+          </div>
+          <div class="contribute-links">
+            <a
+              class="btn-outline"
+              href="#materials"
+              onclick="navigate('materials')"
+              >+ ADD STUDY MATERIAL</a
+            >
+            <a
+              class="btn-outline"
+              href="#suggestions"
+              onclick="navigate('suggestions')"
+              >GIVE FEEDBACK</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <div class="footer-top">
+            <div class="footer-brand">
+              <div class="footer-logo">
+                <span class="footer-gear">&#9881;</span> SY MECHANICAL
+              </div>
+              <div class="footer-tagline">
+                Second Year &bull; Class 502A &bull; Mechanical Engineering
+              </div>
+              <div class="footer-college">
+                G H Raisoni College of Engineering &amp; Management, Wagholi,
+                Pune
+              </div>
+            </div>
+            <div class="footer-cols">
+              <div class="footer-col">
+                <div class="footer-col-title">NAVIGATE</div>
+                <a href="#home" class="footer-link">&#8594; Home</a>
+                <a href="#memories" class="footer-link">&#8594; Memories</a>
+                <a href="#timetable" class="footer-link">&#8594; Timetable</a>
+                <a href="#materials" class="footer-link"
+                  >&#8594; Study Material</a
+                >
+              </div>
+              <div class="footer-col">
+                <div class="footer-col-title">CONNECT</div>
+                <a href="#questions" class="footer-link"
+                  >&#8594; Ask / Q&amp;A</a
+                >
+                <a href="#suggestions" class="footer-link"
+                  >&#8594; Suggestions</a
+                >
+                <a href="#about" class="footer-link">&#8594; About</a>
+              </div>
+              <div class="footer-col">
+                <div class="footer-col-title">BATCH INFO</div>
+                <div class="footer-info-item">
+                  Batch &nbsp;&#183;&nbsp; 2024&ndash;25
+                </div>
+                <div class="footer-info-item">
+                  Sem &nbsp;&#183;&nbsp; Third (SY)
+                </div>
+                <div class="footer-info-item">Room &nbsp;&#183;&nbsp; 502A</div>
+                <div class="footer-info-item">
+                  Branch &nbsp;&#183;&nbsp; Mechanical
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-divider"></div>
+          <div class="footer-bottom">
+            <span class="footer-copy"
+              >&copy; 2025 SY Mechanical &middot; Class 502A. All rights
+              reserved.</span
+            >
+            <span class="footer-made"
+              >Built for the batch, by the batch &nbsp;&#9881;</span
+            >
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+    <div class="toast" id="toast"></div>
+  </body>
+</html>
