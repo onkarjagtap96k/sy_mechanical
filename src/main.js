@@ -488,6 +488,19 @@ const MATERIALS_DATA = [
    fileUrl: 'https://drive.google.com/file/d/1qSmNvBb2EUrxB0wlSErkHrhReM5u3xfv/view?usp=drivesdk',
     uploadedBy: 'Onkar Jagtap',
    },
+subject: 'PP',
+    type: 'notes',
+    title: 'Assignment No-1(S1) ',
+   fileUrl: 'https://drive.google.com/file/d/1wn3lTMhIt27qDNZmMsNP4nHAD-7jl7Wk/view?usp=drivesdk',
+    uploadedBy: 'Onkar Jagtap',
+   },
+ {
+    subject: 'PP',
+    type: 'notes',
+    title: 'Assignment No-2(S1) ',
+   fileUrl: 'https://drive.google.com/file/d/1XM6j2udeLZxszUn-GafN2yTepIJdSGgv/view?usp=drivesdk',
+    uploadedBy: 'Onkar Jagtap',
+   },
 
 
   // {
