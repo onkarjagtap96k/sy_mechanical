@@ -213,6 +213,41 @@ function restartCarousel() {
 }
 
 // ── COUNTDOWN TIMER ───────────────────────────────────────────
+const CAE1_EXAM_DATE = new Date(2026, 7, 12, 10, 0, 0);
+let caeCountdownInterval = null;
+ 
+function initCAECountdown() {
+  const display = document.getElementById('caeCountdownDisplay');
+  if (!display) return;
+ 
+  if (caeCountdownInterval) {
+    clearInterval(caeCountdownInterval);
+    caeCountdownInterval = null;
+  }
+ 
+  function tick() {
+    const now = new Date();
+    const diff = CAE1_EXAM_DATE - now;
+ 
+    if (diff <= 0) {
+      display.textContent = 'Exam has started — All the best!';
+      clearInterval(caeCountdownInterval);
+      caeCountdownInterval = null;
+      return;
+    }
+ 
+    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const mins  = Math.floor((diff / (1000 * 60)) % 60);
+    const secs  = Math.floor((diff / 1000) % 60);
+ 
+    display.textContent =
+      `${days}d ${String(hours).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
+  }
+ 
+  tick();
+  caeCountdownInterval = setInterval(tick, 1000);
+}
 // ── COUNTDOWN TIMER ───────────────────────────────────────────
 let masterInterval = null;
 let activeTimers = [];
