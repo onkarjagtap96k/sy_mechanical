@@ -464,14 +464,7 @@ const SUBJECTS = [
 
 /* ============================================================
    STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
-   ------------------------------------------------------------
-   Neeche list mein ek naya { } object add karo:
-     subject : "FM&HM" | "ET" | "KOM" | "DSA" | "ITPDE" | "PP" | "EVS" | "ES"
-     type    : "notes" | "pyqs"
-     title   : jo naam dikhana hai   (e.g. "Unit 1 — Fluid Statics")
-     fileUrl : Google Drive ka sharing link ("Anyone with the link" access)
-     uploadedBy : naam jo card par dikhega (optional, default "Admin")
-   Koi database nahi hai — bas yahan add karo, save karo, deploy karo.
+  
    ============================================================ */
 const MATERIALS_DATA = [
    {
@@ -479,30 +472,106 @@ const MATERIALS_DATA = [
     type: 'notes',
     title: 'Unit 1 ',
    fileUrl: 'https://drive.google.com/file/d/1ev-YLeR_2FJMLwzv3HxXCdu7xUFDzWk0/view?usp=drivesdk',
-    uploadedBy: 'Onkar Jagtap',
+    uploadedBy: 'Admin',
    },
+  {
+    subject: 'FM&HM',
+    type: 'notes',
+    title: 'Unit 1(Handwritten) ',
+   fileUrl: 'https://drive.google.com/file/d/1ev-YLeR_2FJMLwzv3HxXCdu7xUFDzWk0/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+   },
+   {
+    subject: 'FM&HM',
+    type: 'notes',
+    title: 'Unit 2(Handwritten) ',
+   fileUrl: 'https://drive.google.com/file/d/1HZ1SWsrVuqtey-5J0KzFxoYZvTZBrgP9/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+   },
+   {
+    subject: 'FM&HM',
+    type: 'notes',
+    title: 'TAE -1 (Answers) ',
+   fileUrl: 'https://drive.google.com/file/d/1HZ1SWsrVuqtey-5J0KzFxoYZvTZBrgP9/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+   },
+  /* ============================================================
+   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
+  
+   ============================================================ */
+   {
+    subject: 'ET',
+    type: 'notes',
+    title: 'Unit 1(Handwritten) ',
+   fileUrl: 'https://drive.google.com/file/d/1f4Hh_2UyEV2QhG7fR2gKGnCz5u1f-fc2/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+   },
+   /* ============================================================
+   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
+  
+   ============================================================ */
+   
   {
     subject: 'ITPDE',
     type: 'notes',
     title: '30 Qustions Answers',
    fileUrl: 'https://drive.google.com/file/d/1qSmNvBb2EUrxB0wlSErkHrhReM5u3xfv/view?usp=drivesdk',
-    uploadedBy: 'Onkar Jagtap',
+    uploadedBy: 'Admin',
    },
-subject: 'PP',
+   {
+    subject: 'ITPDE',
+    type: 'notes',
+    title: 'Unit 1(handwritten)',
+   fileUrl: 'https://drive.google.com/file/d/1qlXobpqklxmI29uF1hs3es-5KmuADAru/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+   },
+   {
+    subject: 'ITPDE',
+    type: 'notes',
+    title: 'Unit 2(handwritten)',
+   fileUrl: 'https://drive.google.com/file/d/192J27gcY4JwmVuu4PwbH2pw6lMFMKvEd/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+   },
+   /* ============================================================
+   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
+  
+   ============================================================ */
+   
+  {subject: 'PP',
     type: 'notes',
     title: 'Assignment No-1(S1) ',
    fileUrl: 'https://drive.google.com/file/d/1wn3lTMhIt27qDNZmMsNP4nHAD-7jl7Wk/view?usp=drivesdk',
-    uploadedBy: 'Onkar Jagtap',
+    uploadedBy: 'Admin',
    },
  {
     subject: 'PP',
     type: 'notes',
     title: 'Assignment No-2(S1) ',
    fileUrl: 'https://drive.google.com/file/d/1XM6j2udeLZxszUn-GafN2yTepIJdSGgv/view?usp=drivesdk',
-    uploadedBy: 'Onkar Jagtap',
+    uploadedBy: 'Admin',
    },
-
-
+  /* ============================================================
+   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
+  
+   ============================================================ */
+   {
+    subject: 'DSA',
+    type: 'notes',
+    title: 'Unit 1(Handwritten) ',
+   fileUrl: 'https://drive.google.com/file/d/1OWwF6UMiVC3lGfM9G9ah0iPFD7MQpjkN/view?usp=drivesdk',
+    uploadedBy: ' Admin',
+   },
+    /* ============================================================
+   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
+  
+   ============================================================ */
+   {
+    subject: 'KOM',
+    type: 'notes',
+    title: 'Unit 1(handwritten)',
+   fileUrl: 'https://drive.google.com/file/d/1IOAoPpCSn3ybGf8xO3s2cZ4gDi2cWv-M/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+   },
   // {
   //   subject: 'ET',
   //   type: 'pyqs',
