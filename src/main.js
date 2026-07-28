@@ -17,13 +17,7 @@ const SUBJECT_FULL = {
   'Library':    'Library Hour',
 };
 
-// ── TIMETABLE DATA (from actual schedule) ───────────────────
 // ── TIMETABLE DATA ────────────────────────────────────────────
-// Source: SY_Classroom_502A_TimeTable_V2.xlsx
-// Class: SY | Room: 502A | w.e.f.: 15/06/2026
-// Class Teacher: Mr. Nagareddy G.
-// Practical time: 11:30–1:30 (Mon/Tue/Wed) | Thu & Fri: 2:15–4:15
-
 const TIMETABLE = {
   Mon: [
     { time: '9:15–10:15',  subject: 'FM&HM',      code: 'FM&HM',  faculty: 'Dr. A.M. Thakare (AMT)',        type: 'lecture',   label: 'Slot 1' },
@@ -131,10 +125,8 @@ function showPage(page) {
   });
   closeSidebar();
 
-  // Load page data
   if (page === 'home') loadHome();
   else if (page === 'memories') loadMemories();
-
   else if (page === 'timetable') loadTimetable();
   else if (page === 'materials') loadMaterials();
   else if (page === 'questions') loadQuestions();
@@ -172,7 +164,6 @@ function initCarousel() {
   const dots = document.getElementById('carouselDots');
   if (!track || !dots) return;
 
-  // Build slides
   track.innerHTML = slides.map((s, i) => `
     <div class="carousel-slide">
       <img src="${s.src}" alt="Memory ${i+1}" loading="${i === 0 ? 'eager' : 'lazy'}" />
@@ -180,7 +171,6 @@ function initCarousel() {
     </div>
   `).join('');
 
-  // Build dots
   dots.innerHTML = slides.map((_, i) => `
     <button class="carousel-dot ${i === 0 ? 'active' : ''}" data-i="${i}" aria-label="Slide ${i+1}"></button>
   `).join('');
@@ -211,10 +201,73 @@ function restartCarousel() {
   clearInterval(carouselTimer);
   startCarousel();
 }
-async function loadHome() {
-  initCarousel();
-  initCAECountdown();   // ← ye naya line add karo
-  // ... baaki purana code same rahega
+
+// ── LECTURE COUNTDOWN TIMER ───────────────────────────────────
+let masterInterval = null;
+let activeTimers = [];
+
+function parseSlotTime(timeStr) {
+    const parts = timeStr.replace('–', '-').split('-');
+    const toMins = t => {
+        const [h, m] = t.trim().split(':').map(Number);
+        return h * 60 + m;
+    };
+    return { startMins: toMins(parts[0]), endMins: toMins(parts[1]) };
+}
+
+function fmtCountdown(totalSecs) {
+    if (totalSecs <= 0) return '00:00:00';
+    const h = Math.floor(totalSecs / 3600);
+    const m = Math.floor((totalSecs % 3600) / 60);
+    const s = totalSecs % 60;
+    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function startCountdownTo(targetMins, labelEl, displayEl) {
+    activeTimers.push({ targetMins, labelEl, displayEl });
+    updateAllTimers();
+    if (!masterInterval) {
+        masterInterval = setInterval(updateAllTimers, 1000);
+    }
+}
+
+function updateAllTimers() {
+    const now = new Date();
+    const nowMins = now.getHours() * 60 + now.getMinutes();
+    const nowSecs = now.getSeconds();
+    let shouldReload = false;
+
+    activeTimers = activeTimers.filter(timer => document.body.contains(timer.displayEl));
+
+    if (activeTimers.length === 0) {
+        clearInterval(masterInterval);
+        masterInterval = null;
+        return;
+    }
+
+    activeTimers.forEach(timer => {
+        const diffSecs = (timer.targetMins - nowMins) * 60 - nowSecs;
+
+        if (diffSecs <= 0) {
+            if (timer.displayEl && timer.displayEl.textContent !== '00:00:00') {
+                timer.displayEl.textContent = '00:00:00';
+                shouldReload = true;
+            }
+        } else {
+            if (timer.displayEl) {
+                timer.displayEl.textContent = fmtCountdown(diffSecs);
+            }
+        }
+    });
+
+    if (shouldReload) {
+        activeTimers = [];
+        clearInterval(masterInterval);
+        masterInterval = null;
+        loadHome();
+    }
+}
+
 // ── CAE-1 EXAM COUNTDOWN ────────────────────────────────────
 // Target: 12 August 2026, 10:00 AM  (month index 7 = August)
 const CAE1_EXAM_DATE = new Date(2026, 7, 12, 10, 0, 0);
@@ -252,82 +305,12 @@ function initCAECountdown() {
   tick();
   caeCountdownInterval = setInterval(tick, 1000);
 }
-// ── COUNTDOWN TIMER ───────────────────────────────────────────
-let masterInterval = null;
-let activeTimers = [];
-
-function parseSlotTime(timeStr) {
-    // "9:15–10:15" or "9:15-10:15"
-    const parts = timeStr.replace('–', '-').split('-');
-    const toMins = t => {
-        const [h, m] = t.trim().split(':').map(Number);
-        return h * 60 + m;
-    };
-    return { startMins: toMins(parts[0]), endMins: toMins(parts[1]) };
-}
-
-function fmtCountdown(totalSecs) {
-    if (totalSecs <= 0) return '00:00:00';
-    const h = Math.floor(totalSecs / 3600);
-    const m = Math.floor((totalSecs % 3600) / 60);
-    const s = totalSecs % 60;
-    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-}
-
-// Naya startCountdownTo jo multiple timers support karta hai
-function startCountdownTo(targetMins, labelEl, displayEl) {
-    activeTimers.push({ targetMins, labelEl, displayEl });
-
-    updateAllTimers(); // First tick immediately
-
-    if (!masterInterval) {
-        masterInterval = setInterval(updateAllTimers, 1000);
-    }
-}
-
-// Ek single master function jo saare timers ko update karega
-function updateAllTimers() {
-    const now = new Date();
-    const nowMins = now.getHours() * 60 + now.getMinutes();
-    const nowSecs = now.getSeconds();
-    let shouldReload = false;
-
-    // Memory leak rokne ke liye jo elements page se hat gaye hain unhe filter kar do
-    activeTimers = activeTimers.filter(timer => document.body.contains(timer.displayEl));
-
-    if (activeTimers.length === 0) {
-        clearInterval(masterInterval);
-        masterInterval = null;
-        return;
-    }
-
-    activeTimers.forEach(timer => {
-        const diffSecs = (timer.targetMins - nowMins) * 60 - nowSecs;
-
-        if (diffSecs <= 0) {
-            if (timer.displayEl && timer.displayEl.textContent !== '00:00:00') {
-                timer.displayEl.textContent = '00:00:00';
-                shouldReload = true; // Koi class start ho gayi hai toh reload flag ON karo
-            }
-        } else {
-            if (timer.displayEl) {
-                timer.displayEl.textContent = fmtCountdown(diffSecs);
-            }
-        }
-    });
-
-    // Agar kisi ek lecture ka time khatam hua hai, toh loadHome() wapas call karein
-    if (shouldReload) {
-        activeTimers = []; // Purane array ko clear karein
-        clearInterval(masterInterval);
-        masterInterval = null;
-        loadHome();
-    }
-}
 
 // ── HOME PAGE ─────────────────────────────────────────────────
 async function loadHome() {
   initCarousel();
+  initCAECountdown();
+
   const container = document.getElementById('upcomingClasses');
   if (!container) return;
 
@@ -345,7 +328,6 @@ async function loadHome() {
   const now = new Date();
   const nowMins = now.getHours()*60 + now.getMinutes();
 
-  // Find upcoming: first slot that hasn't ended yet
   let upcoming = null;
   let upcomingIdx = -1;
   for (let i = 0; i < activeSlots.length; i++) {
@@ -366,13 +348,11 @@ async function loadHome() {
 
   const fullName = SUBJECT_FULL[upcoming.subject] || upcoming.subject;
 
-  // Type badge
   let typeBadge = 'LECTURE';
   if (upcoming.type === 'practical') typeBadge = 'LAB';
   else if (upcoming.type === 'library') typeBadge = 'LIBRARY';
   else if (upcoming.type === 'activity') typeBadge = 'ACTIVITY';
 
-  // Next class (skip breaks)
   const nextSlot = activeSlots[upcomingIdx + 1] || null;
   const nextFull = nextSlot ? (SUBJECT_FULL[nextSlot.subject] || nextSlot.subject) : null;
 
@@ -427,7 +407,6 @@ async function loadMemories() {
 let activeTTDay = 'Mon';
 
 function loadTimetable() {
-  // Attach tab listeners once
   const tabs = document.querySelectorAll('.day-tab');
   tabs.forEach(tab => {
     tab.onclick = () => {
@@ -438,7 +417,6 @@ function loadTimetable() {
     };
   });
 
-  // Auto-select today
   const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const today = days[new Date().getDay()];
   if (TIMETABLE[today]) {
@@ -503,114 +481,92 @@ const SUBJECTS = [
 
 /* ============================================================
    STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
-  
    ============================================================ */
 const MATERIALS_DATA = [
-   {
-    subject: 'FM&HM',
-    type: 'notes',
-    title: 'Unit 1 ',
-   fileUrl: 'https://drive.google.com/file/d/1ev-YLeR_2FJMLwzv3HxXCdu7xUFDzWk0/view?usp=drivesdk',
-    uploadedBy: 'Admin',
-   },
   {
     subject: 'FM&HM',
     type: 'notes',
-    title: 'Unit 1(Handwritten) ',
-   fileUrl: 'https://drive.google.com/file/d/1ev-YLeR_2FJMLwzv3HxXCdu7xUFDzWk0/view?usp=drivesdk',
+    title: 'Unit 1',
+    fileUrl: 'https://drive.google.com/file/d/1ev-YLeR_2FJMLwzv3HxXCdu7xUFDzWk0/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
-   {
+  },
+  {
     subject: 'FM&HM',
     type: 'notes',
-    title: 'Unit 2(Handwritten) ',
-   fileUrl: 'https://drive.google.com/file/d/1HZ1SWsrVuqtey-5J0KzFxoYZvTZBrgP9/view?usp=drivesdk',
+    title: 'Unit 1 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1ev-YLeR_2FJMLwzv3HxXCdu7xUFDzWk0/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
-   {
+  },
+  {
     subject: 'FM&HM',
     type: 'notes',
-    title: 'TAE -1 (Answers) ',
-   fileUrl: 'https://drive.google.com/file/d/1HZ1SWsrVuqtey-5J0KzFxoYZvTZBrgP9/view?usp=drivesdk',
+    title: 'Unit 2 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1HZ1SWsrVuqtey-5J0KzFxoYZvTZBrgP9/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
-  /* ============================================================
-   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
-  
-   ============================================================ */
-   {
+  },
+  {
+    subject: 'FM&HM',
+    type: 'notes',
+    title: 'TAE-1 (Answers)',
+    fileUrl: 'https://drive.google.com/file/d/1HZ1SWsrVuqtey-5J0KzFxoYZvTZBrgP9/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
+  {
     subject: 'ET',
     type: 'notes',
-    title: 'Unit 1(Handwritten) ',
-   fileUrl: 'https://drive.google.com/file/d/1f4Hh_2UyEV2QhG7fR2gKGnCz5u1f-fc2/view?usp=drivesdk',
+    title: 'Unit 1 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1f4Hh_2UyEV2QhG7fR2gKGnCz5u1f-fc2/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
-   /* ============================================================
-   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
-  
-   ============================================================ */
-   
+  },
   {
     subject: 'ITPDE',
     type: 'notes',
-    title: '30 Qustions Answers',
-   fileUrl: 'https://drive.google.com/file/d/1qSmNvBb2EUrxB0wlSErkHrhReM5u3xfv/view?usp=drivesdk',
+    title: '30 Questions Answers',
+    fileUrl: 'https://drive.google.com/file/d/1qSmNvBb2EUrxB0wlSErkHrhReM5u3xfv/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
-   {
+  },
+  {
     subject: 'ITPDE',
     type: 'notes',
-    title: 'Unit 1(handwritten)',
-   fileUrl: 'https://drive.google.com/file/d/1qlXobpqklxmI29uF1hs3es-5KmuADAru/view?usp=drivesdk',
+    title: 'Unit 1 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1qlXobpqklxmI29uF1hs3es-5KmuADAru/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
-   {
+  },
+  {
     subject: 'ITPDE',
     type: 'notes',
-    title: 'Unit 2(handwritten)',
-   fileUrl: 'https://drive.google.com/file/d/192J27gcY4JwmVuu4PwbH2pw6lMFMKvEd/view?usp=drivesdk',
+    title: 'Unit 2 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/192J27gcY4JwmVuu4PwbH2pw6lMFMKvEd/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
-   /* ============================================================
-   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
-  
-   ============================================================ */
-   
-  {subject: 'PP',
-    type: 'notes',
-    title: 'Assignment No-1(S1) ',
-   fileUrl: 'https://drive.google.com/file/d/1wn3lTMhIt27qDNZmMsNP4nHAD-7jl7Wk/view?usp=drivesdk',
-    uploadedBy: 'Admin',
-   },
- {
+  },
+  {
     subject: 'PP',
     type: 'notes',
-    title: 'Assignment No-2(S1) ',
-   fileUrl: 'https://drive.google.com/file/d/1XM6j2udeLZxszUn-GafN2yTepIJdSGgv/view?usp=drivesdk',
+    title: 'Assignment No-1 (S1)',
+    fileUrl: 'https://drive.google.com/file/d/1wn3lTMhIt27qDNZmMsNP4nHAD-7jl7Wk/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
-  /* ============================================================
-   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
-  
-   ============================================================ */
-   {
+  },
+  {
+    subject: 'PP',
+    type: 'notes',
+    title: 'Assignment No-2 (S1)',
+    fileUrl: 'https://drive.google.com/file/d/1XM6j2udeLZxszUn-GafN2yTepIJdSGgv/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
+  {
     subject: 'DSA',
     type: 'notes',
-    title: 'Unit 1(Handwritten) ',
-   fileUrl: 'https://drive.google.com/file/d/1OWwF6UMiVC3lGfM9G9ah0iPFD7MQpjkN/view?usp=drivesdk',
-    uploadedBy: ' Admin',
-   },
-    /* ============================================================
-   STUDY MATERIAL LIST — SIRF YAHAN EDIT KARO NOTES/PYQ ADD KARNE KE LIYE
-  
-   ============================================================ */
-   {
+    title: 'Unit 1 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1OWwF6UMiVC3lGfM9G9ah0iPFD7MQpjkN/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
+  {
     subject: 'KOM',
     type: 'notes',
-    title: 'Unit 1(handwritten)',
-   fileUrl: 'https://drive.google.com/file/d/1IOAoPpCSn3ybGf8xO3s2cZ4gDi2cWv-M/view?usp=drivesdk',
+    title: 'Unit 1 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1IOAoPpCSn3ybGf8xO3s2cZ4gDi2cWv-M/view?usp=drivesdk',
     uploadedBy: 'Admin',
-   },
+  },
   // {
   //   subject: 'ET',
   //   type: 'pyqs',
@@ -628,7 +584,6 @@ async function loadMaterials() {
   const content = document.getElementById('materialsContent');
   if (!content) return;
 
-  // Koi API/database nahi — seedha hardcoded MATERIALS_DATA use hota hai
   materialsData = MATERIALS_DATA;
   renderMaterialsBySubject();
 
@@ -683,7 +638,6 @@ function renderMaterialsBySubject() {
     const pyqs  = materialsData.filter(m => m.subject === sub.code && m.type === 'pyqs');
     const allItems = [...notes, ...pyqs];
 
-
     return `
       <div class="smc-card">
         <div class="smc-header">
@@ -716,9 +670,8 @@ async function loadQuestions() {
   if (!list) return;
 
   const data = await apiFetch('/questions');
-  renderQuestions(data || FALLBACK_QUESTIONS, list);
+  renderQuestions(data || [], list);
 
-  // Ask form
   document.getElementById('askForm')?.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = document.getElementById('askSubmit');
@@ -742,7 +695,7 @@ async function loadQuestions() {
       msg.textContent = 'Question posted! Your batchmates can now answer.';
       e.target.reset();
       const fresh = await apiFetch('/questions');
-      renderQuestions(fresh || [res, ...FALLBACK_QUESTIONS], list);
+      renderQuestions(fresh || [res], list);
       setTimeout(() => { msg.className = 'form-msg hidden'; }, 3000);
     } else {
       msg.className = 'form-msg error';
@@ -826,7 +779,6 @@ window.submitAnswer = async function(qId) {
     if (fresh && list) renderQuestions(fresh, list);
   }
 };
-
 
 // ── SUGGESTIONS ───────────────────────────────────────────────
 function initSuggestions() {
