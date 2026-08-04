@@ -578,7 +578,7 @@ const MATERIALS_DATA = [
    uploadedBy: 'Admin',
   },
    {
-   subject: 'FMHM',
+   subject: 'FM&HM',
    type: 'pyqs',
    title: '2025 CAE 1 PYQ Paper',
    fileUrl: 'https://drive.google.com/file/d/1L2bkRogLHGh2qHNq76Dig2FywF14lsyo/view?usp=drivesdk',
