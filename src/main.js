@@ -494,14 +494,14 @@ const MATERIALS_DATA = [
     subject: 'FM&HM',
     type: 'notes',
     title: 'Unit 1 (Handwritten)',
-    fileUrl: 'https://drive.google.com/file/d/1ev-YLeR_2FJMLwzv3HxXCdu7xUFDzWk0/view?usp=drivesdk',
+    fileUrl: 'https://drive.google.com/file/d/1UDxt_43hVZir-_TmtluDKKbxEh1jFC3E/view?usp=drivesdk',
     uploadedBy: 'Admin',
   },
   {
     subject: 'FM&HM',
     type: 'notes',
     title: 'Unit 2 (Handwritten)',
-    fileUrl: 'https://drive.google.com/file/d/1HZ1SWsrVuqtey-5J0KzFxoYZvTZBrgP9/view?usp=drivesdk',
+    fileUrl: 'https://drive.google.com/file/d/1uIJOLvHdpsNUe-tDLtMH6E9CxKSTxXcz/view?usp=drivesdk',
     uploadedBy: 'Admin',
   },
   {
