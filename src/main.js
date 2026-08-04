@@ -570,13 +570,48 @@ const MATERIALS_DATA = [
     fileUrl: 'https://drive.google.com/file/d/1IOAoPpCSn3ybGf8xO3s2cZ4gDi2cWv-M/view?usp=drivesdk',
     uploadedBy: 'Admin',
   },
-  // {
-  //   subject: 'ET',
-  //   type: 'pyqs',
-  //   title: '2024 PYQ Paper',
-  //   fileUrl: 'https://drive.google.com/file/d/XXXXXXXXXXXXXXX/view',
-  //   uploadedBy: 'Admin',
-  // },
+   {
+   subject: 'ET',
+   type: 'pyqs',
+   title: '2025 CAE 1 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1AfEPcAbKhLckmCqV13OZS6gN7AjYiXH-/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
+   {
+   subject: 'FMHM',
+   type: 'pyqs',
+   title: '2025 CAE 1 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1L2bkRogLHGh2qHNq76Dig2FywF14lsyo/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
+   {
+   subject: 'ITPDE',
+   type: 'pyqs',
+   title: '2025 CAE1 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1HNY4Ph3Y2TcnUxD1j5TMGJ_sAbN64tcV/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
+   {
+   subject: 'KOM',
+   type: 'pyqs',
+   title: '2025 CAE 1 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1v2NDXePDvQfvghl5LJkPDQ7_5HIPG7x2/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
+   {
+   subject: 'DSA',
+   type: 'pyqs',
+   title: '2025 CAE 1 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1GYe-amxlqXVACA7ZqRFH-zYsFHqcqx77/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
+  {
+   subject: 'ITPDE',
+   type: 'pyqs',
+   title: '2025  CAE 1 PYQ Paper(ANSWERS)',
+   fileUrl: 'https://drive.google.com/file/d/1KF4oS8q9TYdO_CDhBbcPddtgwd4zybAs/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
 ];
 
 let materialsData = [];
