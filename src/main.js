@@ -328,60 +328,63 @@ async function loadHome() {
   const now = new Date();
   const nowMins = now.getHours()*60 + now.getMinutes();
 
-  let upcoming = null;
-  let upcomingIdx = -1;
-  for (let i = 0; i < activeSlots.length; i++) {
-    const { endMins } = parseSlotTime(activeSlots[i].time);
-    if (endMins > nowMins) { upcoming = activeSlots[i]; upcomingIdx = i; break; }
-  }
+  // Din ki SAARI bachi hui (abhi khatam na hui) classes nikalo
+  const remaining = activeSlots.filter(slot => {
+    const { endMins } = parseSlotTime(slot.time);
+    return endMins > nowMins;
+  });
 
-  if (!upcoming) {
+  if (!remaining.length) {
     container.innerHTML = `<div class="empty-state"><div class="empty-icon">&#10003;</div>All classes done for today — great job!</div>`;
     return;
   }
 
-  const { startMins, endMins } = parseSlotTime(upcoming.time);
-  const inProgress = nowMins >= startMins && nowMins < endMins;
-  const targetMins = inProgress ? endMins : startMins;
-  const statusLabel = inProgress ? 'IN PROGRESS' : 'UPCOMING LECTURE';
-  const countdownLabel = inProgress ? 'ends in' : 'starts in';
+  let cardsHtml = '';
+  const timerTargets = [];
 
-  const fullName = SUBJECT_FULL[upcoming.subject] || upcoming.subject;
+  remaining.forEach((slot, order) => {
+    const { startMins, endMins } = parseSlotTime(slot.time);
+    const inProgress = nowMins >= startMins && nowMins < endMins;
+    const targetMins = inProgress ? endMins : startMins;
+    const statusLabel = inProgress ? 'IN PROGRESS' : 'UPCOMING LECTURE';
+    const countdownLabel = inProgress ? 'ends in' : 'starts in';
+    const fullName = SUBJECT_FULL[slot.subject] || slot.subject;
 
-  let typeBadge = 'LECTURE';
-  if (upcoming.type === 'practical') typeBadge = 'LAB';
-  else if (upcoming.type === 'library') typeBadge = 'LIBRARY';
-  else if (upcoming.type === 'activity') typeBadge = 'ACTIVITY';
+    let typeBadge = 'LECTURE';
+    if (slot.type === 'practical') typeBadge = 'LAB';
+    else if (slot.type === 'library') typeBadge = 'LIBRARY';
+    else if (slot.type === 'activity') typeBadge = 'ACTIVITY';
 
-  const nextSlot = activeSlots[upcomingIdx + 1] || null;
-  const nextFull = nextSlot ? (SUBJECT_FULL[nextSlot.subject] || nextSlot.subject) : null;
+    const countdownId = `countdownDisplay-${order}`;
 
-  container.innerHTML = `
-    <div class="ulc-card${inProgress ? ' ulc-inprogress' : ''}">
-      <div class="ulc-top-row">
-        <span class="ulc-status">${statusLabel}</span>
-        <span class="ulc-type-badge">${typeBadge}</span>
-        <span class="ulc-room">&#9670; Room 502A</span>
+    cardsHtml += `
+      <div class="ulc-card${inProgress ? ' ulc-inprogress' : ''}">
+        <div class="ulc-top-row">
+          <span class="ulc-status">${statusLabel}</span>
+          <span class="ulc-type-badge">${typeBadge}</span>
+          <span class="ulc-room">&#9670; Room 502A</span>
+        </div>
+        <div class="ulc-subject-full">${fullName}</div>
+        <div class="ulc-time-row">
+          <span class="ulc-time">${slot.time}</span>
+          ${slot.faculty ? `<span class="ulc-faculty">&#128100; ${slot.faculty}</span>` : ''}
+        </div>
+        <div class="ulc-countdown-wrap">
+          <div class="ulc-countdown-label">${countdownLabel}</div>
+          <div class="ulc-countdown" id="${countdownId}">00:00:00</div>
+        </div>
       </div>
-      <div class="ulc-subject-full">${fullName}</div>
-      <div class="ulc-time-row">
-        <span class="ulc-time">${upcoming.time}</span>
-        ${upcoming.faculty ? `<span class="ulc-faculty">&#128100; ${upcoming.faculty}</span>` : ''}
-      </div>
-      <div class="ulc-countdown-wrap">
-        <div class="ulc-countdown-label">${countdownLabel}</div>
-        <div class="ulc-countdown" id="countdownDisplay">00:00:00</div>
-      </div>
-    </div>
-    ${nextFull ? `
-    <div class="ulc-next-hint">
-      <span class="ulc-next-label">NEXT CLASS</span>
-      <span class="ulc-next-name">${nextFull}</span>
-      <span class="ulc-next-time">${nextSlot.time}</span>
-    </div>` : ''}
-  `;
+    `;
 
-  startCountdownTo(targetMins, null, document.getElementById('countdownDisplay'));
+    timerTargets.push({ targetMins, countdownId });
+  });
+
+  container.innerHTML = cardsHtml;
+
+  // Har card ka apna alag live countdown start karo
+  timerTargets.forEach(({ targetMins, countdownId }) => {
+    startCountdownTo(targetMins, null, document.getElementById(countdownId));
+  });
 }
 
 // ── MEMORIES PAGE ─────────────────────────────────────────────
