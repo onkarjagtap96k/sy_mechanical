@@ -577,6 +577,13 @@ const MATERIALS_DATA = [
    fileUrl: 'https://drive.google.com/file/d/1AfEPcAbKhLckmCqV13OZS6gN7AjYiXH-/view?usp=drivesdk',
    uploadedBy: 'Admin',
   },
+ {
+   subject: 'ET',
+   type: 'pyqs',
+   title: 'ET IMP QUSTION (BANK)',
+   fileUrl: 'https://drive.google.com/file/d/1AfEPcAbKhLckmCqV13OZS6gN7AjYiXH-/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
    {
    subject: 'FM&HM',
    type: 'pyqs',
