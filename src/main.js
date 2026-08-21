@@ -103,7 +103,7 @@ async function apiFetch(path, opts = {}) {
   }
 }
 
-// ── ROUTING ──────────────────────────────────────────────────
+// ── ROUTING ────────────────────────────────────────────────
 const pages = ['home', 'memories', 'timetable', 'materials', 'questions', 'suggestions', 'about'];
 
 function getCurrentPage() {
