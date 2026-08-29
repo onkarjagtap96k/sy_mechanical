@@ -205,85 +205,174 @@
           </div>
         </div>
  <button onclick="navigate('timetable')" class="banner-btn btn-secondary">Full Timetable</button> 
-            
-        <!-- Upcoming Lecture -->
-        <div class="section-block">
-          <div class="section-label">
-            <span class="label-line"></span>UPCOMING LECTURE<span
-              class="label-line"
-            ></span>
-          </div>
-          <div id="upcomingClasses">
-            <div class="loading-bar"><span></span></div>
-          </div>
+            <!-- Upcoming Lecture -->
+<div class="section-block">
+  <div class="section-label">
+    <span class="label-line"></span>
+    UPCOMING LECTURE
+    <span class="label-line"></span>
+  </div>
+
+  <div id="upcomingClasses">
+    <div class="loading-bar">
+      <span></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- Quick Access -->
+<div class="section-block">
+  <div class="section-label">
+    <span class="label-line"></span>
+    QUICK ACCESS
+    <span class="label-line"></span>
+  </div>
+
+  <div class="quick-cards">
+
+    <!-- Study Material -->
+    <div class="quick-card" onclick="navigate('materials')">
+      <div class="qc-icon">&#9724;</div>
+
+      <div class="qc-info">
+        <div class="qc-label">Study Material</div>
+        <div class="qc-sub">
+          Notes &amp; PYQs for all subjects
         </div>
-        <div class="section-block">
-          <div class="section-label  <!-- Quick Access -->
-        <div class="section-block">
-          <div class="section-label">
-            <span
-  class="label-line"></span>QUICK ACCESS<span
-              class="label-line"
-            ></span>
-          </div>
-          <div class="quick-cards">
-            <div class="quick-card" onclick="navigate('materials')">
-              <div class="qc-icon">&#9724;</div>
-              <div class="qc-info">
-                <div class="qc-label">Study Material</div>
-                <div class="qc-sub">Notes &amp; PYQs for all subjects</div>
-              </div>
-              <div class="qc-arrow">&#8250;</div>
-            </div>
-        <!-- <div class="quick-card" onclick="navigate('questions')">
-              <div class="qc-icon">&#9651;</div>
-              <div class="qc-info">
-                <div class="qc-label">Ask / Q&amp;A</div>
-                <div class="qc-sub">Post doubts, get answers</div>
-              </div>
-              <div class="qc-arrow">&#8250;</div>
-            </div>-->
-            <div class="quick-card" onclick="navigate('timetable')">
-              <div class="qc-icon">&#9670;</div>
-              <div class="qc-info">
-                <div class="qc-label">Full Timetable</div>
-                <div class="qc-sub">Mon – Sat schedule</div>
-              </div>
-              <div class="qc-arrow">&#8250;</div>
-            </div>
-            <div class="quick-card" onclick="navigate('suggestions')">
-              <div class="qc-icon">&#9675;</div>
-              <div class="qc-info">
-                <div class="qc-label">Suggestions</div>
-                <div class="qc-sub">Give feedback &amp; ideas</div>
-              </div>
-              <div class="qc-arrow">&#8250;</div>
-            </div>
-          </div>
-      </d>
- <div class="section-block gate-zone-block">
-          <div class="section-label">
-            <span class="label-line">
+      </div>
 
-</span>
+      <div class="qc-arrow">&#8250;</div>
+    </div>
 
 
-         GATE PREPARATION ZONE
-            <span class="label-line"></span>
-          </div>
+    <!-- Ask / Q&A -->
+    <!--
+    <div class="quick-card" onclick="navigate('questions')">
+      <div class="qc-icon">&#9651;</div>
 
-          <div class="gate-premium-card">
-            <div class="gate-card-content">
-              <div class="gate-icon-badge">🎯</div>
-              <h3 class="gate-card-title">Free GATE All Material & Lectures</h3>
-              <p class="gate-card-subtitle">Complete Video Series & Premium Study Material by PW</p>
-            </div>
-
-            <a href="https://akkistudy.netlify.app/" target="_blank" class="gate-study-btn">
-              Study Now <span class="btn-glow-arrow">🚀</span>
-            </a>
-          </div>
+      <div class="qc-info">
+        <div class="qc-label">Ask / Q&amp;A</div>
+        <div class="qc-sub">
+          Post doubts, get answers
         </div>
+      </div>
+
+      <div class="qc-arrow">&#8250;</div>
+    </div>
+    -->
+
+
+    <!-- Full Timetable -->
+    <div class="quick-card" onclick="navigate('timetable')">
+      <div class="qc-icon">&#9670;</div>
+
+      <div class="qc-info">
+        <div class="qc-label">Full Timetable</div>
+        <div class="qc-sub">
+          Mon – Sat schedule
+        </div>
+      </div>
+
+      <div class="qc-arrow">&#8250;</div>
+    </div>
+
+
+    <!-- Suggestions -->
+    <div class="quick-card" onclick="navigate('suggestions')">
+      <div class="qc-icon">&#9675;</div>
+
+      <div class="qc-info">
+        <div class="qc-label">Suggestions</div>
+        <div class="qc-sub">
+          Give feedback &amp; ideas
+        </div>
+      </div>
+
+      <div class="qc-arrow">&#8250;</div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- GATE Preparation Zone -->
+<div class="section-block gate-zone-block">
+
+  <div class="section-label">
+    <span class="label-line"></span>
+    GATE PREPARATION ZONE
+    <span class="label-line"></span>
+  </div>
+
+  <div class="gate-premium-card">
+
+    <div class="gate-card-content">
+
+      <div class="gate-icon-badge">🎯</div>
+
+      <h3 class="gate-card-title">
+        Free GATE All Material &amp; Lectures
+      </h3>
+
+      <p class="gate-card-subtitle">
+        Complete Video Series &amp; Premium Study Material by PW
+      </p>
+
+    </div>
+
+    <a
+      href="https://akkistudy.netlify.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="gate-study-btn"
+    >
+      Study Now <span class="btn-glow-arrow">🚀</span>
+    </a>
+
+  </div>
+</div>
+
+
+<!-- Assignment Writer -->
+<section class="assignment-writer">
+
+  <div class="assignment-icon">
+    ✍️
+  </div>
+
+  <div class="assignment-content">
+
+    <span class="assignment-badge">
+      AVAILABLE
+    </span>
+
+    <h2>
+      Assignment Writer Available
+    </h2>
+
+    <p>
+      Get your assignments written neatly and professionally.
+    </p>
+
+    <div class="assignment-price">
+      ₹7 <span>per page</span>
+    </div>
+
+    <a
+      href="https://wa.me/919284462064?text=Hello%2C%20I%20need%20an%20assignment%20writer."
+      class="whatsapp-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span>💬</span>
+      Contact on WhatsApp
+    </a>
+
+  </div>
+
+</section>
+   
 
 
 
