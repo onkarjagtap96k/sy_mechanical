@@ -202,429 +202,7 @@ body {
   font-family: var(--font-body);
   min-height: 100vh;
   overflow-x: hidden;
-}<!-- GATE PREPARATION ZONE -->
-<!-- ============================= -->
-
-<div class="section-block gate-zone-block">
-
-  <div class="section-label">
-    <span class="label-line"></span>
-    GATE PREPARATION ZONE
-    <span class="label-line"></span>
-  </div>
-
-  <div class="premium-info-card gate-card">
-
-    <div class="premium-card-icon">🎯</div>
-
-    <div class="premium-card-content">
-
-      <span class="premium-badge">
-        FREE ACCESS
-      </span>
-
-      <h3>
-        Free GATE All Material &amp; Lectures
-      </h3>
-
-      <p>
-        Complete Video Series &amp; Premium Study Material by PW
-      </p>
-
-      <a
-        href="https://akkistudy.netlify.app/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="premium-action-btn"
-      >
-        Study Now
-        <span>🚀</span>
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- ASSIGNMENT WRITER -->
-<!-- ============================= -->
-
-<div class="section-block assignment-zone-block">
-
-  <div class="section-label">
-    <span class="label-line"></span>
-    ASSIGNMENT WRITER
-    <span class="label-line"></span>
-  </div>
-
-  <div class="premium-info-card assignment-card">
-
-    <div class="premium-card-icon">
-      ✍️
-    </div>
-
-    <div class="premium-card-content">
-
-      <span class="premium-badge">
-        AVAILABLE
-      </span>
-
-      <h3>
-        Assignment Writer Available
-      </h3>
-
-      <p>
-        Get your assignments written neatly and professionally.
-      </p>
-
-      <div class="assignment-price">
-        ₹7 <span>per page</span>
-      </div>
-
-      <a
-        href="https://wa.me/919284462064?text=Hello%2C%20I%20need%20an%20assignment%20writer."
-        target="_blank"
-        rel="noopener noreferrer"
-        class="premium-action-btn whatsapp-action"
-      >
-        <span>💬</span>
-        Contact on WhatsApp
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ============================= -->
-<!-- BUILT & MAINTAINED BY -->
-<!-- ============================= -->
-
-<div class="built-by-section">
-
-  <div class="built-by-line"></div>
-
-  <div class="built-by-content">
-
-    <span class="built-by-small">
-      BUILT &amp; MAINTAINED BY
-    </span>
-
-    <h3>
-      SY Mechanical Engineering
-    </h3>
-
-    <p>
-      Made with ❤️ for students
-    </p>
-
-  </div>
-
-  <div class="built-by-line"></div>
-
-</div>
-
-CSS — Same Premium Theme
-
-/* ========================================= */
-/* PREMIUM COMMON CARD THEME */
-/* ========================================= */
-
-.premium-info-card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 22px;
-
-  padding: 24px;
-
-  background: var(--card, #10131d);
-  border: 1px solid var(--border, #252a38);
-  border-radius: var(--radius, 18px);
-
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
-
-  overflow: hidden;
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.premium-info-card::before {
-  content: "";
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 4px;
-  height: 100%;
-
-  background: var(--accent, #7c5cff);
-}
-
-.premium-info-card:hover {
-  transform: translateY(-2px);
-
-  border-color: var(--accent, #7c5cff);
-
-  box-shadow:
-    0 12px 35px rgba(0, 0, 0, 0.25);
-}
-
-
-/* ========================================= */
-/* ICON */
-/* ========================================= */
-
-.premium-card-icon {
-  flex-shrink: 0;
-
-  width: 58px;
-  height: 58px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 16px;
-
-  background: rgba(124, 92, 255, 0.12);
-
-  border: 1px solid rgba(124, 92, 255, 0.25);
-
-  font-size: 27px;
-}
-
-
-/* ========================================= */
-/* CONTENT */
-/* ========================================= */
-
-.premium-card-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.premium-card-content h3 {
-  margin: 7px 0 6px;
-
-  color: var(--text, #ffffff);
-
-  font-size: 20px;
-  font-weight: 700;
-
-  line-height: 1.3;
-}
-
-.premium-card-content p {
-  margin: 0 0 15px;
-
-  color: var(--muted, #9ca3af);
-
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-
-/* ========================================= */
-/* BADGE */
-/* ========================================= */
-
-.premium-badge {
-  display: inline-flex;
-  align-items: center;
-
-  padding: 5px 9px;
-
-  border-radius: 7px;
-
-  background: rgba(124, 92, 255, 0.12);
-
-  border: 1px solid rgba(124, 92, 255, 0.25);
-
-  color: var(--accent, #9b87ff);
-
-  font-size: 10px;
-  font-weight: 800;
-
-  letter-spacing: 0.8px;
-}
-
-
-/* ========================================= */
-/* ACTION BUTTON */
-/* ========================================= */
-
-.premium-action-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 11px 17px;
-
-  border-radius: 10px;
-
-  background: var(--accent, #7c5cff);
-
-  color: #ffffff;
-
-  text-decoration: none;
-
-  font-size: 13px;
-  font-weight: 700;
-
-  border: 1px solid transparent;
-
-  transition:
-    transform 0.2s ease,
-    opacity 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.premium-action-btn:hover {
-  transform: translateY(-1px);
-
-  opacity: 0.92;
-
-  box-shadow:
-    0 7px 20px rgba(124, 92, 255, 0.28);
-}
-
-
-/* ========================================= */
-/* ASSIGNMENT PRICE */
-/* ========================================= */
-
-.assignment-price {
-  margin: 3px 0 16px;
-
-  color: var(--accent, #9b87ff);
-
-  font-size: 25px;
-  font-weight: 800;
-}
-
-.assignment-price span {
-  color: var(--muted, #9ca3af);
-
-  font-size: 12px;
-  font-weight: 500;
-}
-
-
-/* ========================================= */
-/* WHATSAPP BUTTON */
-/* ========================================= */
-
-.whatsapp-action {
-  background: var(--accent, #7c5cff);
-}
-
-
-/* ========================================= */
-/* BUILT & MAINTAINED BY */
-/* ========================================= */
-
-.built-by-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-
-  margin: 35px 0 15px;
-
-  padding: 20px 10px;
-}
-
-.built-by-line {
-  flex: 1;
-
-  max-width: 90px;
-
-  height: 1px;
-
-  background: var(--border, #252a38);
-}
-
-.built-by-content {
-  text-align: center;
-}
-
-.built-by-small {
-  display: block;
-
-  margin-bottom: 6px;
-
-  color: var(--muted, #9ca3af);
-
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: 1.5px;
-}
-
-.built-by-content h3 {
-  margin: 0;
-
-  color: var(--text, #ffffff);
-
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.built-by-content p {
-  margin: 5px 0 0;
-
-  color: var(--muted, #9ca3af);
-
-  font-size: 10px;
-}
-
-
-/* ========================================= */
-/* MOBILE */
-/* ========================================= */
-
-@media (max-width: 600px) {
-
-  .premium-info-card {
-    gap: 15px;
-    padding: 19px;
-  }
-
-  .premium-card-icon {
-    width: 50px;
-    height: 50px;
-
-    font-size: 23px;
-  }
-
-  .premium-card-content h3 {
-    font-size: 17px;
-  }
-
-  .premium-card-content p {
-    font-size: 12px;
-  }
-
-  .premium-action-btn {
-    width: 100%;
-    padding: 11px 14px;
-  }
-
-  .built-by-section {
-    margin-top: 28px;
-  }
-
+}<
 }
 
 /* ── GATE ZONE INDEPENDENT TABLE STYLING ── */
@@ -3329,4 +2907,271 @@ select.form-input { cursor: pointer; }
   /* logo mobile — slightly smaller */
   .mech-logo-sy { font-size: 44px; }
   .mech-logo-word { font-size: 12px; letter-spacing: 2px; }
+}
+
+/* =========================================
+   GATE + ASSIGNMENT COMMON PREMIUM THEME
+   ========================================= */
+
+.premium-info-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 22px;
+
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+
+  overflow: hidden;
+
+  transition: 0.25s ease;
+}
+
+.premium-info-card::before {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background: var(--accent);
+}
+
+.premium-info-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+
+/* ICON */
+
+.premium-card-icon {
+  width: 58px;
+  height: 58px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--radius);
+
+  background: rgba(245, 158, 11, 0.10);
+  border: 1px solid rgba(245, 158, 11, 0.20);
+
+  font-size: 26px;
+}
+
+
+/* CONTENT */
+
+.premium-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.premium-card-content h3 {
+  margin: 7px 0 6px;
+
+  color: var(--text);
+
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 700;
+
+  line-height: 1.3;
+}
+
+.premium-card-content p {
+  margin: 0 0 15px;
+
+  color: var(--light);
+
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* BADGE */
+
+.premium-badge {
+  display: inline-block;
+
+  padding: 4px 9px;
+
+  border-radius: 6px;
+
+  background: rgba(245, 158, 11, 0.10);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+
+  color: var(--accent);
+
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+}
+
+
+/* BUTTON */
+
+.premium-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 18px;
+
+  background: var(--accent);
+  color: #10131d;
+
+  border-radius: var(--radius-sm);
+
+  text-decoration: none;
+
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+
+  transition: 0.2s ease;
+}
+
+.premium-action-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+
+/* PRICE */
+
+.assignment-price {
+  margin: 3px 0 15px;
+
+  color: var(--accent);
+
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.assignment-price span {
+  color: var(--muted);
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* WHATSAPP */
+
+.whatsapp-action {
+  background: var(--accent);
+}
+
+
+/* BUILT & MAINTAINED */
+
+.built-by-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 16px;
+
+  margin: 30px 0 15px;
+
+  padding: 20px 10px;
+}
+
+.built-by-line {
+  flex: 1;
+
+  max-width: 90px;
+
+  height: 1px;
+
+  background: var(--border);
+}
+
+.built-by-content {
+  text-align: center;
+}
+
+.built-by-small {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--muted);
+
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+}
+
+.built-by-content h3 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-family: var(--font-head);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.built-by-content p {
+  margin: 5px 0 0;
+
+  color: var(--muted);
+
+  font-size: 10px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .premium-info-card {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 20px;
+
+    gap: 14px;
+  }
+
+  .premium-card-content {
+    width: 100%;
+  }
+
+  .premium-card-content h3 {
+    font-size: 17px;
+  }
+
+  .premium-card-content p {
+    font-size: 12px;
+  }
+
+  .premium-action-btn {
+    width: 100%;
+  }
+
+  .built-by-section {
+    margin-top: 25px;
+  }
 }
