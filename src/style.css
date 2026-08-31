@@ -316,7 +316,77 @@ p,
     line-height: 1.5 !important;
   }
 }─ */
-/* =========================================
+/*
+/* ── DSY WELCOME SECTION ── */
+.dsy-welcome {
+  margin: 18px 0;
+  padding: 24px 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #111827, #172554);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.20);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.dsy-welcome::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: rgba(59,130,246,0.15);
+  border-radius: 50%;
+  top: -60px;
+  right: -40px;
+}
+
+.dsy-welcome-content {
+  position: relative;
+  z-index: 1;
+}
+
+.dsy-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background: rgba(59,130,246,0.15);
+  color: #60a5fa;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dsy-welcome h2 {
+  margin: 4px 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.dsy-welcome p {
+  margin: 0 0 7px;
+  color: #dbeafe;
+  font-size: 15px;
+}
+
+.dsy-welcome small {
+  display: block;
+  color: #9ca3af;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .dsy-welcome {
+    padding: 20px 14px;
+    margin: 14px 0;
+  }
+
+  .dsy-welcome h2 {
+    font-size: 21px;
+  }
+} =========================================
    FULL TIMETABLE BUTTON
    Same style as GATE - Study Now
    ========================================= */
