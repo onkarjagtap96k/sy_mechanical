@@ -316,7 +316,71 @@ p,
     line-height: 1.5 !important;
   }
 }─ */
+/* =========================================
+   FULL TIMETABLE BUTTON
+   Same style as GATE - Study Now
+   ========================================= */
 
+.full-timetable-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 18px;
+
+  background: var(--accent);
+  color: #10131d;
+
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 700;
+
+  line-height: 1;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.full-timetable-btn:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.95;
+
+  box-shadow:
+    0 7px 20px rgba(245, 158, 11, 0.25);
+}
+
+.full-timetable-btn:active {
+  transform: translateY(0);
+}
+
+.full-timetable-btn span {
+  font-size: 15px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .full-timetable-btn {
+    padding: 11px 17px;
+    font-size: 13px;
+  }
+
+}
 /* 1. बैनर का बैकग्राउंड (Metallic & Clean) */
 .mech-banner {
   background-color: #0b0f19; /* Deep Space Industrial Background */
