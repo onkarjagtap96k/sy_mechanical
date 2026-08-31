@@ -369,7 +369,14 @@ p,
 .full-timetable-btn span {
   font-size: 15px;
 }
-
+/* Full Timetable Button */
+.full-timetable-btn {
+    display: block;
+    width: fit-content;
+    margin: 16px auto 28px;
+    padding: 14px 30px;
+    text-align: center;
+}
 
 /* Mobile */
 
