@@ -1348,44 +1348,45 @@ p,
   line-height: 1.4;
 }
 /* =========================================
-   DSY WELCOME SECTION
+   DSY WELCOME SECTION - MATCH WEBSITE BG
    ========================================= */
 
 .dsy-welcome {
-  margin: 24px 26px 20px;
-  padding: 28px 18px 30px;
-  border-radius: 24px;
+  margin: 18px 26px 24px;
+  padding: 30px 20px 32px;
 
+  /* Website background se match */
   background: linear-gradient(
-    135deg,
-    #0d152b 0%,
-    #16244a 55%,
-    #192d5c 100%
+    145deg,
+    #f1f3f8 0%,
+    #e9edf4 50%,
+    #f3f4f8 100%
   );
 
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(30, 45, 75, 0.10);
+  border-radius: 24px;
 
   box-shadow:
-    0 12px 30px rgba(10, 20, 45, 0.20),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 10px 28px rgba(20, 35, 60, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
 
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-/* Decorative circles */
+/* Decorative background shapes */
 .dsy-welcome::before {
   content: "";
   position: absolute;
 
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
 
-  top: -75px;
-  right: -35px;
+  top: -95px;
+  right: -45px;
 
-  background: rgba(55, 91, 180, 0.28);
+  background: rgba(30, 55, 110, 0.07);
   border-radius: 50%;
 }
 
@@ -1393,13 +1394,13 @@ p,
   content: "";
   position: absolute;
 
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 
-  bottom: -55px;
-  left: -35px;
+  bottom: -75px;
+  left: -45px;
 
-  background: rgba(238, 164, 25, 0.08);
+  background: rgba(232, 164, 25, 0.08);
   border-radius: 50%;
 }
 
@@ -1408,90 +1409,99 @@ p,
   z-index: 2;
 }
 
-/* DSY Badge */
+/* Badge */
 .dsy-badge {
   display: inline-block;
 
-  padding: 8px 17px;
-  margin-bottom: 14px;
+  padding: 8px 18px;
+  margin-bottom: 16px;
 
   border-radius: 30px;
 
-  background: rgba(39, 83, 170, 0.35);
-  border: 1px solid rgba(80, 130, 230, 0.18);
+  background: rgba(30, 55, 110, 0.08);
+  border: 1px solid rgba(30, 55, 110, 0.12);
 
-  color: #78a9ff;
+  color: #315da8;
 
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
+  font-weight: 700;
 }
 
-/* Main Heading */
+/* Heading */
 .dsy-welcome h2 {
-  margin: 3px 0 12px;
+  margin: 4px 0 13px;
 
-  color: #efa719;
+  color: #e5a019;
 
-  font-size: 23px;
+  font-size: 24px;
   font-weight: 800;
 
-  letter-spacing: 1.2px;
-  line-height: 1.35;
+  letter-spacing: 1px;
+  line-height: 1.4;
 }
 
 /* Subtitle */
 .dsy-subtitle {
-  margin: 0 auto 10px;
+  margin: 0 auto 12px;
 
-  color: #dce6f7;
+  color: #26344d;
 
   font-size: 16px;
-  line-height: 1.5;
-}
+  font-weight: 500;
 
-/* Bottom tagline */
-.dsy-tagline {
-  margin: 0;
-
-  color: #aeb9ce;
-
-  font-size: 13px;
   line-height: 1.6;
 }
 
-.dsy-tagline strong {
-  color: #f0b329;
-  font-weight: 600;
+/* Tagline */
+.dsy-tagline {
+  margin: 0;
+
+  color: #687386;
+
+  font-size: 14px;
+  line-height: 1.7;
 }
 
-/* Mobile */
+.dsy-tagline strong {
+  color: #d99a12;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
 @media (max-width: 480px) {
 
   .dsy-welcome {
-    margin: 20px 26px 18px;
-    padding: 25px 15px 27px;
-    border-radius: 22px;
+    margin: 18px 26px 24px;
+    padding: 30px 17px 32px;
+    border-radius: 24px;
   }
 
   .dsy-badge {
     font-size: 12px;
-    padding: 7px 14px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
   }
 
   .dsy-welcome h2 {
-    font-size: 20px;
-    letter-spacing: 0.8px;
+    font-size: 21px;
+    line-height: 1.45;
+    letter-spacing: 0.7px;
   }
 
   .dsy-subtitle {
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.55;
   }
 
   .dsy-tagline {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
+  
 /* ── MEMORIES PAGE ───────────────────────────── */
 .memory-banner {
   background: var(--card);
