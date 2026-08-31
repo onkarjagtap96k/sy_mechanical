@@ -203,160 +203,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-
-
-/* ── GATE PREMIUM RECTANGLE CARD STYLING ── */
-.gate-premium-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(135deg, #1c2438 0%, #161f33 100%);
-  border: 1px solid #24324f;
-  border-radius: 14px;
-  padding: 24px 30px;
-  margin-top: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.gate-premium-card:hover {
-  transform: translateY(-2px);
-  border-color: #ff9f43; /* होवर करने पर गोल्ड बॉर्डर चमकेगा */
-}
-
-/* Content Layout */
-.gate-card-content {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.gate-icon-badge {
-  font-size: 1.5rem;
-  margin-bottom: 2px;
-}
-
-.gate-card-title {
-  font-family: var(--font-head), sans-serif !important;
-  font-size: 1.3rem !important;
-  font-weight: 700 !important;
-  color: #ffffff !important;
-  margin: 0 !important;
-}
-
-.gate-card-subtitle {
-  font-family: var(--font-body), sans-serif !important;
-  font-size: 0.95rem !important;
-  color: #ff9f43 !important; /* PW/Gold Highlight Text */
-  margin: 0 !important;
-  font-weight: 500;
-}
-
-/* Study Now Button */
-.gate-study-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #ff9f43 !important; /* Solid Gold Color */
-  color: #ffffff !important;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-family: var(--font-head), sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(255, 159, 67, 0.3);
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.gate-study-btn:hover {
-  background: #ffb061 !important;
-  box-shadow: 0 6px 20px rgba(255, 159, 67, 0.45);
-  transform: scale(1.02);
-}
-
-/* 📱 Mobile View Setup (मोबाइल पर बटन नीचे आ जाएगा) */
-@media (max-width: 650px) {
-  .gate-premium-card {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .gate-card-content {
-    align-items: center;
-  }
-
-  .gate-card-title {
-    font-size: 1.15rem !important;
-  }
-
-  .gate-study-btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-/* Badges */
-.gate-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border: 1px solid transparent;
-}
-.badge-pw { background: rgba(255, 159, 67, 0.12); color: #ff9f43; border-color: rgba(255, 159, 67, 0.25); }
-.badge-teal { background: rgba(0, 210, 211, 0.12); color: #00d2d3; border-color: rgba(0, 210, 211, 0.25); }
-
-/* Action Buttons */
-.gate-action-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff !important;
-  padding: 9px 18px;
-  border-radius: 8px;
-  font-family: var(--font-head), sans-serif;
-  font-weight: 700;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.2s ease;
-}
-
-.gate-action-btn:hover {
-  transform: translateY(-2px);
-}
-
-.btn-gold { background: #ff9f43 !important; box-shadow: 0 4px 12px rgba(255, 159, 67, 0.3); }
-.btn-gold:hover { background: #ffb061 !important; }
-
-.btn-teal { background: #00d2d3 !important; box-shadow: 0 4px 12px rgba(0, 210, 211, 0.3); }
-.btn-teal:hover { background: #1ad9da !important; }
-
-/* 📱 Mobile View Setup */
-@media (max-width: 650px) {
-  .gate-resources-table thead { display: none; }
-  .gate-resources-table tr {
-    display: flex;
-    flex-direction: column;
-    padding: 14px;
-    text-align: center;
-    gap: 10px;
-    border-bottom: 1px solid #24324f;
-  }
-  .gate-resources-table td {
-    padding: 2px;
-    border: none;
-    display: flex;
-    justify-content: center;
-  }
-  .gate-action-btn { width: 100%; }
-}
 /* ── SIDEBAR ─────────────────────────────────── */
 .sidebar {
   position: fixed;
@@ -371,7 +217,61 @@ body {
   overflow-y: auto;
   transition: transform 0.25s ease;
 }
-/* ── SY MECHANICAL BANNER STYLING ── */
+/* ── SY MECHANICAL BANNER STYLING ─--radius-sm:  8px;
+  --font-head:  'Space Grotesk', sans-serif;
+  --font-body:  'Inter', sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+}
+
+.section-label, 
+h2, 
+.home-title {
+  font-family: var(--font-head) !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--accent) !important;
+  font-size: 1.3rem !important;
+}
+
+h3, 
+.subject-title, 
+.qc-label {
+  font-family: var(--font-head) !important;
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+}
+
+p, 
+.qc-sub, 
+.faculty-info {
+  font-family: var(--font-body) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+@media (max-width: 768px) {
+  .section-label, 
+  h2, 
+  .home-title {
+    font-size: 1.05rem !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 12px !important;
+  }
+
+  h3, 
+  .subject-title, 
+  .qc-label {
+    font-size: 1.05rem !important;
+  }
+
+  p, 
+  .qc-sub, 
+  .faculty-info {
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
+  }
+}─ */
 
 /* 1. बैनर का बैकग्राउंड (Metallic & Clean) */
 .mech-banner {
