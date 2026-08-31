@@ -20,58 +20,58 @@ body {
   --topbar-h:   60px;
   --radius:     12px;
   --radius-sm:  8px;
-  /* ── RESPONSIVE HEADING & TEXT FONTS ─────────────────── */
+  --font-head:  'Space Grotesk', sans-serif;
+  --font-body:  'Inter', sans-serif;
+  --font-mono:  'JetBrains Mono', monospace;
+}
 
-  /* 1. Desktop & Common Styles */
+.section-label, 
+h2, 
+.home-title {
+  font-family: var(--font-head) !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--accent) !important;
+  font-size: 1.3rem !important;
+}
+
+h3, 
+.subject-title, 
+.qc-label {
+  font-family: var(--font-head) !important;
+  font-weight: 700 !important;
+  font-size: 1.15rem !important;
+}
+
+p, 
+.qc-sub, 
+.faculty-info {
+  font-family: var(--font-body) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+@media (max-width: 768px) {
   .section-label, 
   h2, 
   .home-title {
-    font-family: var(--font-head) !important;
-    font-weight: 800 !important;
-    letter-spacing: 2px !important;
-    text-transform: uppercase !important;
-    color: var(--accent) !important;
-    font-size: 1.3rem !important; /* डेस्कटॉप के लिए साइज़ */
+    font-size: 1.05rem !important;
+    letter-spacing: 1.5px !important;
+    margin-bottom: 12px !important;
   }
 
   h3, 
   .subject-title, 
   .qc-label {
-    font-family: var(--font-head) !important;
-    font-weight: 700 !important;
-    font-size: 1.15rem !important;
+    font-size: 1.05rem !important;
   }
 
   p, 
   .qc-sub, 
   .faculty-info {
-    font-family: var(--font-body) !important;
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
-  }
-
-  /* 2. Mobile Responsive Screen Fix (जब स्क्रीन छोटी हो) */
-  @media (max-width: 768px) {
-    .section-label, 
-    h2, 
-    .home-title {
-      font-size: 1.05rem !important;    /* मोबाइल पर हेडिंग का साइज़ थोड़ा छोटा किया */
-      letter-spacing: 1.5px !important; /* स्पेसिंग थोड़ी कम की ताकि स्क्रीन से बाहर न जाए */
-      margin-bottom: 12px !important;
-    }
-
-    h3, 
-    .subject-title, 
-    .qc-label {
-      font-size: 1.05rem !important;   /* कार्ड के टाइटल्स मोबाइल के हिसाब से सेट किए */
-    }
-
-    p, 
-    .qc-sub, 
-    .faculty-info {
-      font-size: 0.88rem !important;   /* डिस्क्रिप्शन टेक्स्ट को थोड़ा छोटा किया ताकि आँखों को चुभे नहीं */
-      line-height: 1.5 !important;
-    }
+    font-size: 0.88rem !important;
+    line-height: 1.5 !important;
   }
 }
 /* ── NOTICE BOARD PREMIUM STYLING ── */
