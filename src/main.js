@@ -612,6 +612,13 @@ const MATERIALS_DATA = [
    fileUrl: 'https://drive.google.com/file/d/1KF4oS8q9TYdO_CDhBbcPddtgwd4zybAs/view?usp=drivesdk',
    uploadedBy: 'Admin',
   },
+{
+   subject: 'ES',
+   type: 'notes',
+   title: 'Assignment Topic',
+   fileUrl: 'https://drive.google.com/file/d/1xnU9Eo42cX28Rtij6f-CovyGoldYOeXi/view?usp=drivesdk',
+   uploadedBy: 'Onkar Jagtap(Admin)',
+  },
 ];
 
 let materialsData = [];
