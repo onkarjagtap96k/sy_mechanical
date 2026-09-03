@@ -267,7 +267,66 @@ function updateAllTimers() {
         loadHome();
     }
 }
+// =====================================================
+// CNC ANNOUNCEMENT
+// =====================================================
 
+function openCncMaterials() {
+
+  // Select CNC subject
+  matSubjectFilter = 'CNC';
+
+  // Go to Study Material page
+  navigate('materials');
+
+  // Render CNC subject
+  loadMaterials();
+
+  // Close popup
+  closeCncPopup();
+
+  // Remember this announcement was opened
+  localStorage.setItem('cncAnnouncementSeen', 'true');
+}
+
+
+function closeCncPopup() {
+
+  const popup = document.getElementById('cncAnnouncement');
+
+  if (popup) {
+    popup.classList.remove('show');
+  }
+
+  localStorage.setItem('cncAnnouncementSeen', 'true');
+}
+
+
+function initCncAnnouncement() {
+
+  const popup = document.getElementById('cncAnnouncement');
+
+  const openBtn = document.getElementById('openCncMaterials');
+
+  const closeBtn = document.getElementById('closeCncAnnouncement');
+
+  const laterBtn = document.getElementById('closeCncLater');
+
+  if (!popup) return;
+
+  // Show only if this announcement hasn't been seen
+  if (!localStorage.getItem('cncAnnouncementSeen')) {
+    setTimeout(() => {
+      popup.classList.add('show');
+    }, 700);
+  }
+
+  openBtn?.addEventListener('click', openCncMaterials);
+
+  closeBtn?.addEventListener('click', closeCncPopup);
+
+  laterBtn?.addEventListener('click', closeCncPopup);
+}
 // ── CAE-1 EXAM COUNTDOWN ────────────────────────────────────
 // Target: 12 August 2026, 10:00 AM  (month index 7 = August)
 const CAE1_EXAM_DATE = new Date(2026, 7, 12, 10, 0, 0);
