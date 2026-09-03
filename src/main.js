@@ -8,7 +8,7 @@ const SUBJECT_FULL = {
   'FM&HM':      'Fluid Mechanics & Hydraulic Machines',
   'ET':         'Engineering Thermodynamics',
   'KOM':        'Kinematics of Machines',
-  'EVS':        'Environmental Science',
+  'CNC':        'CNC PROGRAMMING AND MACHINING',
   'DSA':        'Data Structures & Algorithms',
   'PP':         'Python Programming',
   'ITPDE':      'Integral Transform & Partial Diff. Eq.',
