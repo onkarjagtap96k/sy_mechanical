@@ -478,7 +478,7 @@ const SUBJECTS = [
   { code: 'DSA',   full: 'Data Structures & Algorithms' },
   { code: 'ITPDE', full: 'Integral Transform & Partial Diff. Eq.' },
   { code: 'PP',    full: 'Python Programming' },
-  { code: 'EVS',   full: 'Environmental Science' },
+  { code: 'CNC',   full: 'CNC Programming and machining' },
   { code: 'ES',    full: 'Life Skills' },
 ];
 
@@ -645,6 +645,41 @@ const MATERIALS_DATA = [
    type: 'notes',
    title: 'Assignment Topic',
    fileUrl: 'https://drive.google.com/file/d/1xnU9Eo42cX28Rtij6f-CovyGoldYOeXi/view?usp=drivesdk',
+   uploadedBy: 'Onkar Jagtap(Admin)',
+  },
+{
+   subject: 'CNC',
+   type: 'notes',
+   title: 'CNC Machining unit 1',
+   fileUrl: 'https://drive.google.com/file/d/1s5Ai1QWjTWc7eCfOHbtfm4ACl7cKi0n6/view?usp=drivesdk',
+   uploadedBy: 'Onkar Jagtap(Admin)',
+  },
+{
+   subject: 'CNC',
+   type: 'notes',
+   title: 'CNC Machining unit 2',
+   fileUrl: 'https://drive.google.com/file/d/15HO94b8TXQwUFPL0H8rkVFXTBBeFzOGJ/view?usp=drivesdk',
+   uploadedBy: 'Onkar Jagtap(Admin)',
+  },
+{
+   subject: 'CNC',
+   type: 'notes',
+   title: 'CNC Machining Handwritten notes all',
+   fileUrl: 'https://drive.google.com/file/d/1LooWw83xGMRtCzpGzKGeqQ5Ry_1axNFM/view?usp=drivesdk',
+   uploadedBy: 'Onkar Jagtap(Admin)',
+  },
+{
+   subject: 'CNC',
+   type: 'pyqs',
+   title: 'CNC Programming notes',
+   fileUrl: 'https://drive.google.com/file/d/1ktzIP-BQ98jN31nug842KU_rGLO5tRBJ/view?usp=drivesdk',
+   uploadedBy: 'Onkar Jagtap(Admin)',
+  },
+{
+   subject: 'CNC',
+   type: 'pyqs',
+   title: 'CNC Programming handwritten notes',
+   fileUrl: 'https://drive.google.com/file/d/14z2vpsVKk432QvEeHW6cax3SiXxVg1kW/view?usp=drivesdk',
    uploadedBy: 'Onkar Jagtap(Admin)',
   },
 ];
