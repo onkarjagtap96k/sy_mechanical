@@ -1022,6 +1022,7 @@ function init() {
   initTheme();
   initSuggestions();
   showPage(getCurrentPage());
+initCncAnnouncement();
 }
 
 document.addEventListener('DOMContentLoaded', init);
