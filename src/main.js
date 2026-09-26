@@ -88,6 +88,223 @@ const TIMETABLE = {
     { time: '2:15–3:15',   subject: 'Extra Curricular Activity',                                              type: 'activity',  label: 'Slot 5' },
   ],
 };
+// ── TODAY'S LECTURES ───────────────────────────────
+
+const DAY_NAMES = {
+  0: 'Sun',
+  1: 'Mon',
+  2: 'Tue',
+  3: 'Wed',
+  4: 'Thu',
+  5: 'Fri',
+  6: 'Sat'
+};
+
+
+// Convert time like 9:15 into minutes
+function lectureTimeToMinutes(time) {
+  const parts = time.trim().split(':');
+  return Number(parts[0]) * 60 + Number(parts[1]);
+}
+
+
+// Get start and end time
+function getLectureStartEnd(timeString) {
+
+  const parts = timeString
+    .replace(/–/g, '-')
+    .split('-');
+
+  return {
+    start: lectureTimeToMinutes(parts[0]),
+    end: lectureTimeToMinutes(parts[1])
+  };
+}
+
+
+// Render Today's Lectures
+function renderTodaysLectures() {
+
+  const container = document.getElementById('upcomingClasses');
+
+  if (!container) return;
+
+  const todayKey = DAY_NAMES[new Date().getDay()];
+
+  // Sunday
+  if (!TIMETABLE[todayKey]) {
+
+    container.innerHTML = `
+      <div class="no-lecture">
+        <strong>No lectures today</strong>
+        <br>
+        <span>Enjoy your Sunday 🎉</span>
+      </div>
+    `;
+
+    return;
+  }
+
+
+  const todaySchedule = TIMETABLE[todayKey];
+
+  const now = new Date();
+
+  const currentMinutes =
+    now.getHours() * 60 + now.getMinutes();
+
+
+  // Find current lecture
+  let currentIndex = -1;
+
+  todaySchedule.forEach((item, index) => {
+
+    if (!item.time) return;
+
+    const { start, end } =
+      getLectureStartEnd(item.time);
+
+    if (
+      currentMinutes >= start &&
+      currentMinutes < end
+    ) {
+      currentIndex = index;
+    }
+
+  });
+
+
+  // Find next lecture
+  let nextIndex = -1;
+
+  for (let i = 0; i < todaySchedule.length; i++) {
+
+    const item = todaySchedule[i];
+
+    if (!item.time) continue;
+
+    const { start } =
+      getLectureStartEnd(item.time);
+
+    if (start > currentMinutes) {
+
+      nextIndex = i;
+      break;
+
+    }
+
+  }
+
+
+  let html = `
+    <div class="today-lecture-list">
+  `;
+
+
+  todaySchedule.forEach((item, index) => {
+
+    if (!item.time) return;
+
+
+    const { start, end } =
+      getLectureStartEnd(item.time);
+
+
+    let cardClass = '';
+    let statusText = 'UPCOMING';
+
+
+    // CURRENT LECTURE
+    if (index === currentIndex) {
+
+      cardClass = 'ongoing';
+      statusText = 'ONGOING';
+
+    }
+
+    // COMPLETED
+    else if (end <= currentMinutes) {
+
+      cardClass = 'completed';
+      statusText = 'COMPLETED';
+
+    }
+
+    // NEXT LECTURE
+    else if (index === nextIndex) {
+
+      cardClass = 'next';
+      statusText = 'NEXT LECTURE';
+
+    }
+
+
+    // Break
+    if (item.type === 'break') {
+
+      cardClass += ' break-row';
+      statusText = 'BREAK';
+
+    }
+
+
+    // Lunch
+    if (item.type === 'lunch') {
+
+      cardClass += ' lunch-row';
+      statusText = 'LUNCH';
+
+    }
+
+
+    html += `
+      <div class="today-lecture-card ${cardClass}">
+
+        <div class="lecture-time">
+          ${item.time}
+        </div>
+
+        <div class="lecture-main">
+
+          <div class="lecture-subject">
+            ${item.subject}
+          </div>
+
+          ${
+            item.faculty
+              ? `
+                <div class="lecture-faculty">
+                  ${item.faculty}
+                </div>
+              `
+              : ''
+          }
+
+        </div>
+
+        <div class="lecture-status">
+          ${statusText}
+        </div>
+
+      </div>
+    `;
+
+  });
+
+
+  html += `</div>`;
+
+  container.innerHTML = html;
+}
+
+
+// First load
+renderTodaysLectures();
+
+
+// Update status every 30 seconds
+// No countdown is displayed.
+setInterval(renderTodaysLectures, 30000);
 
 
 
@@ -202,72 +419,7 @@ function restartCarousel() {
   startCarousel();
 }
 
-// ── LECTURE COUNTDOWN TIMER ───────────────────────────────────
-let masterInterval = null;
-let activeTimers = [];
-
-function parseSlotTime(timeStr) {
-    const parts = timeStr.replace('–', '-').split('-');
-    const toMins = t => {
-        const [h, m] = t.trim().split(':').map(Number);
-        return h * 60 + m;
-    };
-    return { startMins: toMins(parts[0]), endMins: toMins(parts[1]) };
-}
-
-function fmtCountdown(totalSecs) {
-    if (totalSecs <= 0) return '00:00:00';
-    const h = Math.floor(totalSecs / 3600);
-    const m = Math.floor((totalSecs % 3600) / 60);
-    const s = totalSecs % 60;
-    return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-}
-
-function startCountdownTo(targetMins, labelEl, displayEl) {
-    activeTimers.push({ targetMins, labelEl, displayEl });
-    updateAllTimers();
-    if (!masterInterval) {
-        masterInterval = setInterval(updateAllTimers, 1000);
-    }
-}
-
-function updateAllTimers() {
-    const now = new Date();
-    const nowMins = now.getHours() * 60 + now.getMinutes();
-    const nowSecs = now.getSeconds();
-    let shouldReload = false;
-
-    activeTimers = activeTimers.filter(timer => document.body.contains(timer.displayEl));
-
-    if (activeTimers.length === 0) {
-        clearInterval(masterInterval);
-        masterInterval = null;
-        return;
-    }
-
-    activeTimers.forEach(timer => {
-        const diffSecs = (timer.targetMins - nowMins) * 60 - nowSecs;
-
-        if (diffSecs <= 0) {
-            if (timer.displayEl && timer.displayEl.textContent !== '00:00:00') {
-                timer.displayEl.textContent = '00:00:00';
-                shouldReload = true;
-            }
-        } else {
-            if (timer.displayEl) {
-                timer.displayEl.textContent = fmtCountdown(diffSecs);
-            }
-        }
-    });
-
-    if (shouldReload) {
-        activeTimers = [];
-        clearInterval(masterInterval);
-        masterInterval = null;
-        loadHome();
-    }
-}
-// =====================================================
+ =====================================================
 // CNC ANNOUNCEMENT
 // =====================================================
 
