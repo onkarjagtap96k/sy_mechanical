@@ -159,7 +159,7 @@ function renderTodaysLectures() {
 
   todaySchedule.forEach((item, index) => {
 
-    if (!item.time) return;
+    if (!item.time || item.type === 'break' || item.type === 'lunch') return;
 
     const { start, end } =
       getLectureStartEnd(item.time);
@@ -181,7 +181,7 @@ function renderTodaysLectures() {
 
     const item = todaySchedule[i];
 
-    if (!item.time) continue;
+    if (!item.time || item.type === 'break' || item.type === 'lunch') continue;
 
     const { start } =
       getLectureStartEnd(item.time);
@@ -215,7 +215,7 @@ function renderTodaysLectures() {
 
 
     // CURRENT LECTURE
-    if (index === currentIndex) {
+    if (item.type !== 'break' && item.type !== 'lunch' && index === currentIndex) {
 
       cardClass = 'ongoing';
       statusText = 'ONGOING';
@@ -223,7 +223,7 @@ function renderTodaysLectures() {
     }
 
     // COMPLETED
-    else if (end <= currentMinutes) {
+    else if (item.type !== 'break' && item.type !== 'lunch' && end <= currentMinutes) {
 
       cardClass = 'completed';
       statusText = 'COMPLETED';
@@ -231,7 +231,7 @@ function renderTodaysLectures() {
     }
 
     // NEXT LECTURE
-    else if (index === nextIndex) {
+    else if (item.type !== 'break' && item.type !== 'lunch' && index === nextIndex) {
 
       cardClass = 'next';
       statusText = 'NEXT LECTURE';
