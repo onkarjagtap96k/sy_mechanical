@@ -3973,3 +3973,51 @@ select.form-input { cursor: pointer; }
     border-radius: 16px;
   }
 }
+
+/* FULL TIMETABLE ACTION AT END OF TODAY SECTION */
+.today-timetable-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.today-timetable-action .full-timetable-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 178px;
+  padding: 11px 18px;
+  border: 1px solid rgba(245, 158, 11, 0.48);
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.10);
+  color: var(--accent);
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.35px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.today-timetable-action .full-timetable-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(245, 158, 11, 0.18);
+  box-shadow: 0 7px 18px rgba(245, 158, 11, 0.16);
+}
+
+.today-timetable-action .full-timetable-btn span {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .today-timetable-action {
+    margin-top: 16px;
+  }
+
+  .today-timetable-action .full-timetable-btn {
+    width: 100%;
+    max-width: 220px;
+  }
+}
