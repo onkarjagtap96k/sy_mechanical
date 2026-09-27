@@ -129,7 +129,11 @@ function renderTodaysLectures() {
 
   if (!container) return;
 
-  const todayKey = DAY_NAMES[new Date().getDay()];
+  const requestedPreviewDay = new URLSearchParams(window.location.search).get('previewDay');
+  const actualTodayKey = DAY_NAMES[new Date().getDay()];
+  const todayKey = Object.prototype.hasOwnProperty.call(TIMETABLE, requestedPreviewDay)
+    ? requestedPreviewDay
+    : actualTodayKey;
 
   // Sunday
   if (!TIMETABLE[todayKey]) {
