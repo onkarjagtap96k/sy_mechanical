@@ -419,7 +419,7 @@ function restartCarousel() {
   startCarousel();
 }
 
- =====================================================
+// =====================================================
 // CNC ANNOUNCEMENT
 // =====================================================
 
@@ -521,81 +521,7 @@ function initCAECountdown() {
 async function loadHome() {
   initCarousel();
   initCAECountdown();
-
-  const container = document.getElementById('upcomingClasses');
-  if (!container) return;
-
-  const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const today = days[new Date().getDay()];
-  const slots = TIMETABLE[today] || [];
-
-  const activeSlots = slots.filter(s => s.type !== 'break' && s.type !== 'lunch');
-
-  if (!activeSlots.length) {
-    container.innerHTML = `<div class="empty-state">NO CLASSES FOR TODAY "TODAY IS FUNDAY"<div class="empty-icon">&#9881;</div></div>`;
-    return;
-  }
-
-  const now = new Date();
-  const nowMins = now.getHours()*60 + now.getMinutes();
-
-  // Din ki SAARI bachi hui (abhi khatam na hui) classes nikalo
-  const remaining = activeSlots.filter(slot => {
-    const { endMins } = parseSlotTime(slot.time);
-    return endMins > nowMins;
-  });
-
-  if (!remaining.length) {
-    container.innerHTML = `<div class="empty-state"><div class="empty-icon">&#10003;</div>All classes done for today — great job!</div>`;
-    return;
-  }
-
-  let cardsHtml = '';
-  const timerTargets = [];
-
-  remaining.forEach((slot, order) => {
-    const { startMins, endMins } = parseSlotTime(slot.time);
-    const inProgress = nowMins >= startMins && nowMins < endMins;
-    const targetMins = inProgress ? endMins : startMins;
-    const statusLabel = inProgress ? 'IN PROGRESS' : 'UPCOMING LECTURE';
-    const countdownLabel = inProgress ? 'ends in' : 'starts in';
-    const fullName = SUBJECT_FULL[slot.subject] || slot.subject;
-
-    let typeBadge = 'LECTURE';
-    if (slot.type === 'practical') typeBadge = 'LAB';
-    else if (slot.type === 'library') typeBadge = 'LIBRARY';
-    else if (slot.type === 'activity') typeBadge = 'ACTIVITY';
-
-    const countdownId = `countdownDisplay-${order}`;
-
-    cardsHtml += `
-      <div class="ulc-card${inProgress ? ' ulc-inprogress' : ''}">
-        <div class="ulc-top-row">
-          <span class="ulc-status">${statusLabel}</span>
-          <span class="ulc-type-badge">${typeBadge}</span>
-          <span class="ulc-room">&#9670; Room 502A</span>
-        </div>
-        <div class="ulc-subject-full">${fullName}</div>
-        <div class="ulc-time-row">
-          <span class="ulc-time">${slot.time}</span>
-          ${slot.faculty ? `<span class="ulc-faculty">&#128100; ${slot.faculty}</span>` : ''}
-        </div>
-        <div class="ulc-countdown-wrap">
-          <div class="ulc-countdown-label">${countdownLabel}</div>
-          <div class="ulc-countdown" id="${countdownId}">00:00:00</div>
-        </div>
-      </div>
-    `;
-
-    timerTargets.push({ targetMins, countdownId });
-  });
-
-  container.innerHTML = cardsHtml;
-
-  // Har card ka apna alag live countdown start karo
-  timerTargets.forEach(({ targetMins, countdownId }) => {
-    startCountdownTo(targetMins, null, document.getElementById(countdownId));
-  });
+  renderTodaysLectures();
 }
 
 // ── MEMORIES PAGE ─────────────────────────────────────────────
