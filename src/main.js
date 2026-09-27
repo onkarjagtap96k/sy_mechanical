@@ -21,7 +21,7 @@ const SUBJECT_FULL = {
 const TIMETABLE = {
   Mon: [
     { time: '9:15–10:15',  subject: 'FM&HM',      code: 'FM&HM',  faculty: 'Dr. A.M. Thakare (AMT)',        type: 'lecture',   label: 'Slot 1' },
-    { time: '10:15–11:15', subject: 'ITPDE',       code: 'ITPDE',  faculty: 'Dr. Jagannath Nath (JN)',        type: 'lecture',   label: 'Slot 2' },
+    { time: '10:15–11:15', subject: 'ET',         code: 'ET',     faculty: 'Dr. S.G. Mitkari (SM)',          type: 'lecture',   label: 'Slot 2' },
     { time: '11:15–11:30', subject: 'Short Break',                                                            type: 'break' },
     { time: '11:30–1:30',  subject: 'Practicals',  code: 'PP / FM&HM',
       faculty: 'S1: PP_SM  |  S2: FMHM_AMT  |  S3: PP_NG',                                                   type: 'practical', label: 'Slot 3–4 (2 hrs)' },
@@ -33,7 +33,7 @@ const TIMETABLE = {
 
   Tue: [
     { time: '9:15–10:15',  subject: 'DSA',         code: 'DSA',    faculty: 'Mr. Jaydeep Shinde (JS)',        type: 'lecture',   label: 'Slot 1' },
-    { time: '10:15–11:15', subject: 'ITPDE',       code: 'ITPDE',  faculty: 'Dr. Jagannath Nath (JN)',        type: 'lecture',   label: 'Slot 2' },
+    { time: '10:15–11:15', subject: 'FM&HM',       code: 'FM&HM',  faculty: 'Dr. A.M. Thakare (AMT)',        type: 'lecture',   label: 'Slot 2' },
     { time: '11:15–11:30', subject: 'Short Break',                                                            type: 'break' },
     { time: '11:30–1:30',  subject: 'Practicals',  code: 'FM&HM / DSA / ET',
       faculty: 'S1: FMHM_AMT  |  S2: DSA_JS  |  S3: ET_SM',                                                  type: 'practical', label: 'Slot 3–4 (2 hrs)' },
@@ -57,10 +57,10 @@ const TIMETABLE = {
 
   Thu: [
     { time: '9:15–10:15',  subject: 'ET',          code: 'ET',     faculty: 'Dr. S.G. Mitkari (SM)',          type: 'lecture',   label: 'Slot 1' },
-    { time: '10:15–11:15', subject: 'FM&HM',       code: 'FM&HM',  faculty: 'Dr. A.M. Thakare (AMT)',        type: 'lecture',   label: 'Slot 2' },
+    { time: '10:15–11:15', subject: 'KOM',         code: 'KOM',    faculty: 'Dr. B.A. Phugate (BAP)',         type: 'lecture',   label: 'Slot 2' },
     { time: '11:15–11:30', subject: 'Short Break',                                                            type: 'break' },
     { time: '11:30–12:30', subject: 'ITPDE',       code: 'ITPDE',  faculty: 'Dr. Jagannath Nath (JN)',        type: 'lecture',   label: 'Slot 3' },
-    { time: '12:30–1:30',  subject: 'KOM',         code: 'KOM',    faculty: 'Dr. B.A. Phugate (BAP)',         type: 'lecture',   label: 'Slot 4' },
+    { time: '12:30–1:30',  subject: 'ITPDE',       code: 'ITPDE',  faculty: 'Dr. Jagannath Nath (JN)',        type: 'lecture',   label: 'Slot 4' },
     { time: '1:30–2:15',   subject: 'Lunch Break',                                                            type: 'lunch' },
     { time: '2:15–4:15',   subject: 'Practicals',  code: 'DSA / ET / PP',
       faculty: 'S1: DSA_JS  |  S2: ET_SM  |  S3: PP_NG',                                                      type: 'practical', label: 'Slot 5–6 (2 hrs)' },
@@ -68,10 +68,10 @@ const TIMETABLE = {
   ],
 
   Fri: [
-    { time: '9:15–10:15',  subject: 'KOM',         code: 'KOM',    faculty: 'Dr. B.A. Phugate (BAP)',         type: 'lecture',   label: 'Slot 1' },
+    { time: '9:15–10:15',  subject: 'ITPDE',       code: 'ITPDE',  faculty: 'Dr. Jagannath Nath (JN)',        type: 'lecture',   label: 'Slot 1' },
     { time: '10:15–11:15', subject: 'DSA',         code: 'DSA',    faculty: 'Mr. Jaydeep Shinde (JS)',        type: 'lecture',   label: 'Slot 2' },
     { time: '11:15–11:30', subject: 'Short Break',                                                            type: 'break' },
-    { time: '11:30–12:30', subject: 'ET',          code: 'ET',     faculty: 'Dr. S.G. Mitkari (SM)',          type: 'lecture',   label: 'Slot 3' },
+    { time: '11:30–12:30', subject: 'KOM',         code: 'KOM',    faculty: 'Dr. B.A. Phugate (BAP)',         type: 'lecture',   label: 'Slot 3' },
     { time: '12:30–1:30',  subject: 'EVS',         code: 'EVS',    faculty: 'Dr. D.S. Patil (DSP)',           type: 'lecture',   label: 'Slot 4' },
     { time: '1:30–2:15',   subject: 'Lunch Break',                                                            type: 'lunch' },
     { time: '2:15–4:15',   subject: 'Practicals',  code: 'PP / FM&HM',
