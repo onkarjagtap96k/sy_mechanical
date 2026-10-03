@@ -749,6 +749,13 @@ const MATERIALS_DATA = [
     fileUrl: 'https://drive.google.com/file/d/1IOAoPpCSn3ybGf8xO3s2cZ4gDi2cWv-M/view?usp=drivesdk',
     uploadedBy: 'Admin',
   },
+{
+    subject: 'KOM',
+    type: 'notes',
+    title: 'Unit 2&3 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1Y4qeIP2kBvnHIOxLOlnn06C-iPrdJbxN/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
    {
    subject: 'ET',
    type: 'pyqs',
