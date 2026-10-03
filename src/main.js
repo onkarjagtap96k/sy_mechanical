@@ -677,6 +677,13 @@ const MATERIALS_DATA = [
     fileUrl: 'https://drive.google.com/file/d/1JEKbMu-uRk4SjRdlmBOd1-MZUPAD17Zt/view?usp=drivesdk',
     uploadedBy: 'Admin',
   },
+{
+    subject: 'ET',
+    type: 'notes',
+    title: 'Unit 4 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1f0IwmA117ebHLd8sBWwTvYsrK9UfK9vH/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
 
   {
     subject: 'ITPDE',
@@ -699,6 +706,21 @@ const MATERIALS_DATA = [
     fileUrl: 'https://drive.google.com/file/d/192J27gcY4JwmVuu4PwbH2pw6lMFMKvEd/view?usp=drivesdk',
     uploadedBy: 'Admin',
   },
+{
+    subject: 'ITPDE',
+    type: 'notes',
+    title: 'Unit 3 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1ivMQhGqQ4tjv7yKYmeT4KwlrUReuwlN4/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
+{
+    subject: 'ITPDE',
+    type: 'notes',
+    title: 'Unit 4 (Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1kQYiSB0TL3bE5D_aQF5RBZR7x1BjnXaj/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
+
   {
     subject: 'PP',
     type: 'notes',
@@ -734,11 +756,25 @@ const MATERIALS_DATA = [
    fileUrl: 'https://drive.google.com/file/d/1AfEPcAbKhLckmCqV13OZS6gN7AjYiXH-/view?usp=drivesdk',
    uploadedBy: 'Admin',
   },
+{
+   subject: 'ET',
+   type: 'pyqs',
+   title: '2025 CAE 2 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1d1FoJNN-69qTUo3jRwofbHI4MU5pM2mo/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
    {
    subject: 'FM&HM',
    type: 'pyqs',
    title: '2025 CAE 1 PYQ Paper',
    fileUrl: 'https://drive.google.com/file/d/1L2bkRogLHGh2qHNq76Dig2FywF14lsyo/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
+{
+   subject: 'FM&HM',
+   type: 'pyqs',
+   title: '2025 CAE 2 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1t6JCDqaiLg6Auh1SQ7foR88rtG0hBrDK/view?usp=drivesdk',
    uploadedBy: 'Admin',
   },
    {
@@ -748,6 +784,13 @@ const MATERIALS_DATA = [
    fileUrl: 'https://drive.google.com/file/d/1HNY4Ph3Y2TcnUxD1j5TMGJ_sAbN64tcV/view?usp=drivesdk',
    uploadedBy: 'Admin',
   },
+ {
+   subject: 'ITPDE',
+   type: 'pyqs',
+   title: '2025 CAE 2 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1fKRTDYPqTLLUzNi-aVU56dsbe-B7r9kZ/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
    {
    subject: 'KOM',
    type: 'pyqs',
@@ -755,11 +798,25 @@ const MATERIALS_DATA = [
    fileUrl: 'https://drive.google.com/file/d/1v2NDXePDvQfvghl5LJkPDQ7_5HIPG7x2/view?usp=drivesdk',
    uploadedBy: 'Admin',
   },
+{
+   subject: 'KOM',
+   type: 'pyqs',
+   title: '2025 CAE 2 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1Sq_o9iveVE4-BynY-Xeq9kWeDGOTuZJh/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
    {
    subject: 'DSA',
    type: 'pyqs',
    title: '2025 CAE 1 PYQ Paper',
    fileUrl: 'https://drive.google.com/file/d/1GYe-amxlqXVACA7ZqRFH-zYsFHqcqx77/view?usp=drivesdk',
+   uploadedBy: 'Admin',
+  },
+{
+   subject: 'DSA',
+   type: 'pyqs',
+   title: '2025 CAE 2 PYQ Paper',
+   fileUrl: 'https://drive.google.com/file/d/1Ha1TK8WVucH_Md_tAsn29SE3Su3UUqH8/view?usp=drivesdk',
    uploadedBy: 'Admin',
   },
   {
