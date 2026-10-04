@@ -656,6 +656,13 @@ const MATERIALS_DATA = [
     fileUrl: 'https://drive.google.com/file/d/1v1ybGQSXBkxq0KYinVmFZbxw7yb74sWp/view?usp=drivesdk',
     uploadedBy: 'Admin',
   },
+{
+    subject: 'FM&HM',
+    type: 'notes',
+    title: 'Unit 4(Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1q2DYGbYCcTY9oDU3lArgwhjPPs3rZeT5/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
   {
     subject: 'ET',
     type: 'notes',
@@ -740,6 +747,13 @@ const MATERIALS_DATA = [
     type: 'notes',
     title: 'Unit 1 (Handwritten)',
     fileUrl: 'https://drive.google.com/file/d/1OWwF6UMiVC3lGfM9G9ah0iPFD7MQpjkN/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
+{
+    subject: 'DSA',
+    type: 'notes',
+    title: 'Unit 3',
+    fileUrl: 'https://docs.google.com/document/d/1Y4FKDdgK_RTI1TbkwXhUeM4D-epYdrqe/edit?usp=drivesdk&ouid=107817993983359572908&rtpof=true&sd=true',
     uploadedBy: 'Admin',
   },
   {
