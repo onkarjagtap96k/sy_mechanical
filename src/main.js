@@ -731,17 +731,11 @@ const MATERIALS_DATA = [
   {
     subject: 'PP',
     type: 'notes',
-    title: 'Assignment No-1 (S1)',
-    fileUrl: 'https://drive.google.com/file/d/1wn3lTMhIt27qDNZmMsNP4nHAD-7jl7Wk/view?usp=drivesdk',
+    title: 'All Assignments',
+    fileUrl: 'https://drive.google.com/file/d/1_JfisdPYQ2HQ6GGwt3_VikBBfw9bplYE/view?usp=drivesdk',
     uploadedBy: 'Admin',
   },
-  {
-    subject: 'PP',
-    type: 'notes',
-    title: 'Assignment No-2 (S1)',
-    fileUrl: 'https://drive.google.com/file/d/1XM6j2udeLZxszUn-GafN2yTepIJdSGgv/view?usp=drivesdk',
-    uploadedBy: 'Admin',
-  },
+  
   {
     subject: 'DSA',
     type: 'notes',
