@@ -746,6 +746,13 @@ const MATERIALS_DATA = [
 {
     subject: 'DSA',
     type: 'notes',
+    title: 'Unit 3(Handwritten)',
+    fileUrl: 'https://drive.google.com/file/d/1OWwF6UMiVC3lGfM9G9ah0iPFD7MQpjkN/view?usp=drivesdk',
+    uploadedBy: 'Admin',
+  },
+{
+    subject: 'DSA',
+    type: 'notes',
     title: 'Unit 3',
     fileUrl: 'https://docs.google.com/document/d/1Y4FKDdgK_RTI1TbkwXhUeM4D-epYdrqe/edit?usp=drivesdk&ouid=107817993983359572908&rtpof=true&sd=true',
     uploadedBy: 'Admin',
