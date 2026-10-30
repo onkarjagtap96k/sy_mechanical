@@ -423,103 +423,7 @@ function restartCarousel() {
   startCarousel();
 }
 
-// =====================================================
-// CNC ANNOUNCEMENT
-// =====================================================
 
-function openCncMaterials() {
-
-  // Select CNC subject
-  matSubjectFilter = 'CNC';
-
-  // Go to Study Material page
-  navigate('materials');
-
-  // Render CNC subject
-  loadMaterials();
-
-  // Close popup
-  closeCncPopup();
-
-  // Remember this announcement was opened
-  localStorage.setItem('cncAnnouncementSeen', 'true');
-}
-
-
-function closeCncPopup() {
-
-  const popup = document.getElementById('cncAnnouncement');
-
-  if (popup) {
-    popup.classList.remove('show');
-  }
-
-  localStorage.setItem('cncAnnouncementSeen', 'true');
-}
-
-
-function initCncAnnouncement() {
-
-  const popup = document.getElementById('cncAnnouncement');
-
-  const openBtn = document.getElementById('openCncMaterials');
-
-  const closeBtn = document.getElementById('closeCncAnnouncement');
-
-  const laterBtn = document.getElementById('closeCncLater');
-
-  if (!popup) return;
-
-  // Show only if this announcement hasn't been seen
-  if (!localStorage.getItem('cncAnnouncementSeen')) {
-    setTimeout(() => {
-      popup.classList.add('show');
-    }, 700);
-  }
-
-  openBtn?.addEventListener('click', openCncMaterials);
-
-  closeBtn?.addEventListener('click', closeCncPopup);
-
-  laterBtn?.addEventListener('click', closeCncPopup);
-}
-// ── CAE-1 EXAM COUNTDOWN ────────────────────────────────────
-// Target: 12 August 2026, 10:00 AM  (month index 7 = August)
-const CAE1_EXAM_DATE = new Date(2026, 7, 12, 10, 0, 0);
-let caeCountdownInterval = null;
-
-function initCAECountdown() {
-  const display = document.getElementById('caeCountdownDisplay');
-  if (!display) return;
-
-  if (caeCountdownInterval) {
-    clearInterval(caeCountdownInterval);
-    caeCountdownInterval = null;
-  }
-
-  function tick() {
-    const now = new Date();
-    const diff = CAE1_EXAM_DATE - now;
-
-    if (diff <= 0) {
-      display.textContent = 'Exam has started — All the best!';
-      clearInterval(caeCountdownInterval);
-      caeCountdownInterval = null;
-      return;
-    }
-
-    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const mins  = Math.floor((diff / (1000 * 60)) % 60);
-    const secs  = Math.floor((diff / 1000) % 60);
-
-    display.textContent =
-      `${days}d ${String(hours).padStart(2, '0')}h ${String(mins).padStart(2, '0')}m ${String(secs).padStart(2, '0')}s`;
-  }
-
-  tick();
-  caeCountdownInterval = setInterval(tick, 1000);
-}
 
 // ── HOME PAGE ─────────────────────────────────────────────────
 async function loadHome() {
@@ -739,7 +643,7 @@ const MATERIALS_DATA = [
     subject: 'PP',
     type: 'notes',
     title: 'All Codes',
-    fileUrl: 'https://drive.google.com/file/d/1_JfisdPYQ2HQ6GGwt3_VikBBfw9bplYE/view?usp=drivesdk',
+    fileUrl: 'https://drive.google.com/file/d/1Tknou7PQWO0s-UQxTX8DxP6C1-1O-bNG/view?usp=drivesdk',
     uploadedBy: '🤷',
   },
   
