@@ -517,12 +517,13 @@ function renderDaySlots(day) {
 
 // ── MATERIALS PAGE ────────────────────────────────────────────
 const SUBJECTS = [
+   { code: 'PYQS',    full: 'ALL SUBJECT  PYQS' },
   { code: 'FM&HM', full: 'Fluid Mechanics & Hydraulic Machines' },
   { code: 'ET',    full: 'Engineering Thermodynamics' },
   { code: 'KOM',   full: 'Kinematics of Machines' },
   { code: 'DSA',   full: 'Data Structures & Algorithms' },
   { code: 'ITPDE', full: 'Integral Transform & Partial Diff. Eq.' },
-  { code: 'PYQS',    full: 'ALL SUBJECT  PYQS' },
+  
   { code: 'CNC',   full: 'CNC Programming and machining' },
   { code: 'ES',    full: 'Life Skills' },
 ];
