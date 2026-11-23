@@ -522,7 +522,7 @@ const SUBJECTS = [
   { code: 'KOM',   full: 'Kinematics of Machines' },
   { code: 'DSA',   full: 'Data Structures & Algorithms' },
   { code: 'ITPDE', full: 'Integral Transform & Partial Diff. Eq.' },
-  { code: 'PP',    full: 'Python Programming' },
+  { code: 'PYQS',    full: 'ALL SUBJECT  PYQS' },
   { code: 'CNC',   full: 'CNC Programming and machining' },
   { code: 'ES',    full: 'Life Skills' },
 ];
@@ -648,18 +648,11 @@ const MATERIALS_DATA = [
   },
 
   {
-    subject: 'PP',
+    subject: 'PYQS',
     type: 'notes',
-    title: 'All Assignments',
-    fileUrl: 'https://drive.google.com/file/d/1_JfisdPYQ2HQ6GGwt3_VikBBfw9bplYE/view?usp=drivesdk',
-    uploadedBy: 'Admin',
-  },
-{
-    subject: 'PP',
-    type: 'notes',
-    title: 'All Codes',
-    fileUrl: 'https://drive.google.com/file/d/1Tknou7PQWO0s-UQxTX8DxP6C1-1O-bNG/view?usp=drivesdk',
-    uploadedBy: '🤷',
+    title: 'CAE 2 SY 2026',
+    fileUrl: 'https://drive.google.com/file/d/1XH4pLj2NmOS6I_C_i7TMYdgxKUe8ameU/view?usp=drivesdk',
+    uploadedBy: 'ONKAR_',
   },
   
   {
